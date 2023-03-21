@@ -1,0 +1,40 @@
+@import '../../../scss/utilities';
+
+.animation {
+    width: 100px;
+    height: 50px;
+    border: 1px solid;
+    background: var(--color-brand-primary);
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-name: widthAnimation;
+    animation-timing-function: ease-in;
+}
+
+@keyframes widthAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.radius {
+    width: 100px;
+    height: 50px;
+    border: 1px solid;
+    background: var(--color-brand-primary);
+}
+
+.otherHeight {
+    width: 100px;
+    border: 1px solid;
+    background: var(--color-brand-primary);
+}
+
+:export {
+    @include generateBorderRadius();
+    @include generateAspectRatios();
+    @include generateShadows();
+}

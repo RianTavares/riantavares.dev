@@ -1,0 +1,12 @@
+@import '../../../scss/utilities';
+
+.value {
+    padding-top: 100%;
+    background: var(--color-brand-primary);
+    border: 1px solid;
+    overflow: hidden;
+}
+
+:export {
+    @include generateSpaces();
+}

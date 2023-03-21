@@ -1,0 +1,45 @@
+@import './vars';
+
+// helper function to generate a list of variables
+@mixin generateVars($list, $prefix) {
+    @each $item, $value in $list {
+        --#{$prefix}-#{$item}: #{$value};
+    }
+}
+
+// generate all font-size variables
+@mixin generateFontSizes() {
+    @include generateVars($font-sizes, 'font-size');
+}
+// generate all font-weight variables
+@mixin generateFontWeights() {
+    @include generateVars($font-weights, 'font-weight');
+}
+// generate all line-height variables
+@mixin generateLineHeights() {
+    @include generateVars($line-heights, 'line-height');
+}
+// generate all space variables
+@mixin generateSpaces() {
+    @include generateVars($spaces, 'space');
+}
+// generate all shadow variables
+@mixin generateShadows() {
+    @include generateVars($shadows, 'shadow');
+}
+// generate all border-radius variables
+@mixin generateBorderRadius() {
+    @include generateVars($border-radius, 'border-radius');
+}
+// generate all aspect-ratio variables
+@mixin generateAspectRatios() {
+    @include generateVars($aspect-ratios, 'aspect-ratio');
+}
+
+// generate all typography variables
+@mixin generateTypography() {
+    @include generateLineHeights();
+    @include generateFontSizes();
+    @include generateFontWeights();
+}
+
