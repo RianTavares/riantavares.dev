@@ -181,6 +181,9 @@ $shadows: (
         --space-11x: 88px;
         --space-12x: 96px;
 
-        --theme-font-primary: "Open Sans",-apple-system-font,Arial,Helvetica,sans-serif;
-        --theme-font-secondary: "Segoe UI",-apple-system-font,Arial,Helvetica,sans-serif, 
+        --theme-font-primary: "Gotham Pro",-apple-system-font,Arial,Helvetica,sans-serif;
+        --theme-font-secondary: "Segoe UI",-apple-system-font,Arial,Helvetica,sans-serif;
+
+        --theme-transition-duration-base: 250ms;
+        --theme-form-elements-height: 48px;
 }
