@@ -12,6 +12,10 @@ yarn dev
 pnpm dev
 ```
 
+## Riantavares.dev Docs 
+This project is documented using Storybook, there you can also find the project planned UI and design tokens.
+[Storybook](https://64192f7be9510d4126bf5510-bgtlqiosev.chromatic.com/?path=/docs/docs-introduction--docs)
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
