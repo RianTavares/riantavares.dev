@@ -3,7 +3,7 @@
 .hamburguerMenuButtonWrapper {
     display: block;
 
-    @media #{$BREAKPOINT-TABLET} {
+    @media #{$BREAKPOINT-TABLET-LAND} {
         display: none;
     }
 }
@@ -44,7 +44,6 @@
 }
 
 .menuSlideBar {
-    background-color: var(--color-background);
     background: var(--overlay-menu-hamburguer);
     
     -webkit-transition: all var(--theme-transition-duration-base) linear;
@@ -77,5 +76,9 @@
     width: 70%;
     max-width: 320px;
     background: var(--color-background);
+}
+
+.mobiNav {
+    padding: var(--space-4x);
 }
 

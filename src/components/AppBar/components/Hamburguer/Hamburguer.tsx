@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './hamburguer.module.scss';
 import clsx from "classnames";
+import { Link } from '../Link';
+import localesService from '@/locales/locales.service';
 
 export const Hamburguer = () => {
     const [isClicked, setIsClicked] = useState(false);
@@ -34,7 +36,13 @@ export const Hamburguer = () => {
                 })} 
             >
                 <section className={styles.slideBarNavWrapper}>
-
+                    <nav className={styles.mobiNav}>
+                        <Link url="#">{localesService.translate('components.appBar.aboutme')}</Link>
+                        <Link url="#">{localesService.translate('components.appBar.myjob')}</Link>
+                        <Link url="#">{localesService.translate('components.appBar.portfolio')}</Link>
+                        <Link url="#">{localesService.translate('components.appBar.testimony')}</Link>
+                        <Link url="#">{localesService.translate('components.appBar.contact')}</Link>
+                    </nav>
                 </section>
             </section>
         </>

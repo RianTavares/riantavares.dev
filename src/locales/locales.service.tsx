@@ -20,8 +20,6 @@ const setTopLevelLocale = (locales: any, locale: any) => {
 }
 
 const translate = (scope: string, options = {}) => {
-    console.log('scope---->', scope);
-    console.log('_locale.languageCode--->', _locale);
     return i18n.t(scope, {locale: _locale, ...options});
 }
 
