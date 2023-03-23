@@ -33,33 +33,18 @@ export const LocaleProvider = ({children}: WithChildrenProps) => {
     const storageLocale = localStorage.getItem(LOCALE_TOKEN);
     const browserLocale = navigator.language;
     const locales = Object.values(LANGUAGES);
+
+    const setLocaleService = (locale: string) => {
+        localeService.setTopLevelLocale(locales, 'en')
+        setIsReady(!isReady);
+    }
     
     const getSystemLocale = (locale: string): string => {
         const DEFAULT_LOCALE = 'en';
         return LANGUAGES[locale] || DEFAULT_LOCALE;
     };
 
-    
-    // const getStorageLocale = async () => {
-    //     const localStorageVar = await localStorage.getItem(LOCALE_TOKEN);
-    
-    //     i18n.locale = localStorageVar;
-    //     if (localStorageVar) setIsReady(true);
-    //   };
-
-    //   const checkStorageLocale = () => {
-    
-    //     if (!storageLocale && browserLocale) {
-    //       const locale = getSystemLocale(browserLocale);
-    //       localStorage.setItem(LOCALE_TOKEN, locale);
-    //     }
-    
-    //     if (!storageLocale && !browserLocale) {
-    //       localStorage.setItem(LOCALE_TOKEN, 'en');
-    //     }
-    //   };
-
-      const setSystemLocale = () => {
+    const setSystemLocale = useCallback(() => {
         let locale;
         if (!storageLocale) {
             locale = getSystemLocale(browserLocale);
@@ -69,16 +54,12 @@ export const LocaleProvider = ({children}: WithChildrenProps) => {
         }
         setLocale(locale);
         setLocaleService(locale);
-      };
-
-      const setLocaleService = (locale: string) => {
-        localeService.setTopLevelLocale(locales, 'en')
-        setIsReady(!isReady);
-      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[browserLocale, storageLocale]);
 
     useEffect(() => {
         setSystemLocale();
-    },[])
+    },[setSystemLocale])
 
     if(!isReady) return null;
 

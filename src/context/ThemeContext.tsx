@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 
 const THEME_TOKEN = 'rtdev@theme';
 
@@ -29,7 +29,7 @@ export const ThemeProvider = ({children}: WithChildrenProps) => {
         document.documentElement.setAttribute('data-theme', theme);
     };
 
-    const detectColorScheme = () => {
+    const detectColorScheme = useCallback(() => {
         const darkModeQuery = '(prefers-color-scheme: dark)';
         const localTheme = localStorage.getItem('rtdev@theme');
         const colorScheme = localTheme || (window.matchMedia && window.matchMedia(darkModeQuery).matches ? 'dark' : 'light');
@@ -38,7 +38,7 @@ export const ThemeProvider = ({children}: WithChildrenProps) => {
         setTheme(colorScheme);
         setIsDark(isDark);
         setDocumentTheme(colorScheme);
-    };
+    },[]);
 
     const toggleTheme = (checked: boolean) => {
         const newTheme = checked ? 'dark' : 'light';
@@ -52,7 +52,7 @@ export const ThemeProvider = ({children}: WithChildrenProps) => {
     useEffect(() => {
         detectColorScheme();
         setIsLoading(false);
-    },[])
+    },[detectColorScheme])
 
     if(isLoading) return <div>Loading...</div>
 
