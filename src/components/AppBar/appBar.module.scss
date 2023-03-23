@@ -1,0 +1,32 @@
+.appBar {
+    height: 100px;
+    width: 100%;
+    background-color: var(--app-bar-background);
+    padding: 0 var(---space-3x);
+
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    transition: top var(--theme-transition-duration-base);
+}
+
+.appBarWrapper {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconWrapper:hover .settingsIcons {
+    color: var(--color-text-primary);
+}
+
+.iconWrapper {
+    svg {
+        path {
+            color: var(--color-text-primary);
+        }
+    }
+}
