@@ -3,7 +3,7 @@ import { DarkModeToggle } from "@/components/ToggleTheme/ToggleTheme";
 import localeService from '../../locales/locales.service';
 import styles from './home.module.scss';
 
-export const Home = () => {
+const Home = () => {
     return (
         <div>
         <div className={styles.homeContent}>
@@ -52,3 +52,5 @@ export const Home = () => {
         </div>
         )
     }
+
+    export default Home;
