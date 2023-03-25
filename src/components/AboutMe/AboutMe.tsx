@@ -1,22 +1,12 @@
 import React from "react";
-import localeService from '../../locales/locales.service';
+import styles from './aboutMe.module.scss';
 
-import { DarkModeToggle } from "@/components/ToggleTheme/ToggleTheme";
-import { BannerTop } from "@/components/BannerTop";
-import { AboutMe } from "@/components/AboutMe";
-
-import styles from './home.module.scss';
-
-const Home = () => {
+export const AboutMe = () => {
     return (
-            <section className={styles.homeContent}>
-                <BannerTop />
-                <AboutMe />
-                <DarkModeToggle />
-                {localeService.translate('screens.home.test')}
-                Diuretics paradis num copo é motivis de denguis.Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.
+        <section className={styles.aboutMe}>
+            <div className={styles.fadeoutWrapper}></div>
                 Mussum Ipsum, cacilds vidis litro abertis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Delegadis gente finis, bibendum egestas augue arcu ut est.Per aumento de cachacis, eu reclamis.Atirei o pau no gatis, per gatis num morreus.
-                
+                    
                 Paisis, filhis, espiritis santis.Suco de cevadiss deixa as pessoas mais interessantis.Sapien in monti palavris qui num significa nadis i pareci latim.Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis.
                 
                 In elementis mé pra quem é amistosis quis leo.Cevadis im ampola pa arma uma pindureta.Suco de cevadiss deixa as pessoas mais interessantis.Quem num gosta di mim que vai caçá sua turmis!
@@ -32,11 +22,6 @@ const Home = () => {
                 Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!Quem manda na minha terra sou euzis!Detraxit consequat et quo num tendi nada.Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.
                 
                 Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.Per aumento de cachacis, eu reclamis.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Cevadis im ampola pa arma uma pindureta.
-                
-                Diuretics paradis num copo é motivis de denguis.Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.
-                <div style={{height: 10000, width: 20}}></div>
-            </section>
-        )
-    }
-
-    export default Home;
+        </section>
+    )
+}

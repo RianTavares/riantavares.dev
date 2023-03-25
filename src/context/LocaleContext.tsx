@@ -61,7 +61,7 @@ export const LocaleProvider = ({children}: WithChildrenProps) => {
         setSystemLocale();
     },[setSystemLocale])
 
-    if(!isReady) return null;
+    if(!isReady) return <></>;
 
     return (
         <LocaleContext.Provider value={{ locale, setLocale }}>

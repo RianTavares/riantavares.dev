@@ -11,21 +11,27 @@ export const AppBar = () => {
 
 
     const autoHideMenuOnScroll = (prevScrollpos: number) => () => {
-        const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.pageYOffset;
+    
+      if (currentScrollPos <= 100) {
+        setStyleTop('0');
+      } else {
         setStyleTop(prevScrollpos > currentScrollPos ? '0' : '-100px');
-        prevScrollpos = currentScrollPos;
+      }
+    
+      prevScrollpos = currentScrollPos;
+    };
+    
+    useEffect(() => {
+      let prevScrollpos = window.pageYOffset;
+      const wrappedHandleScroll = autoHideMenuOnScroll(prevScrollpos);
+    
+      window.addEventListener('scroll', wrappedHandleScroll);
+    
+      return () => {
+        window.removeEventListener('scroll', wrappedHandleScroll);
       };
-    
-      useEffect(() => {
-        let prevScrollpos = window.pageYOffset;
-        const wrappedHandleScroll = autoHideMenuOnScroll(prevScrollpos);
-    
-        window.addEventListener('scroll', wrappedHandleScroll);
-    
-        return () => {
-          window.removeEventListener('scroll', wrappedHandleScroll);
-        };
-      }, []);
+    }, []);
     
     return (
         <header className={styles.appBar} style={{ top: styleTop }}>
@@ -39,7 +45,7 @@ export const AppBar = () => {
                     <Link url="#">{localesService.translate('components.appBar.contact')}</Link>
                   </nav>
                 <section className={styles.iconWrapper}>
-                    <FontAwesomeIcon className={styles.settingsIcon} icon={faCog} size="2x" />
+                    <FontAwesomeIcon className={styles.settingsIcon} icon={faCog} />
                 </section>
             </section>
         </header>
