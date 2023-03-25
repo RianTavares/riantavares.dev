@@ -1,0 +1,22 @@
+@import './breakpoints';
+
+@mixin sectionTitle {
+    font-family: var(--theme-font-primary);
+    font-size: 46px;
+    color: #7EC6B3;
+    
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        font-size: 96px;
+    }
+}
+
+@mixin appMargin {
+    width: calc(100% - var(--space-5x));
+    margin: 0 auto;
+}
+
+@mixin defaultText {
+    font-family: var(--theme-font-secondary);
+    color: var(--color-text-primary);
+    font-size: 16px;
+}

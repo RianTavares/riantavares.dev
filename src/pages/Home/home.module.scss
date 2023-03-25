@@ -1,4 +1,10 @@
-.homeContent {
+@import '../../styles/scss/mixins';
+
+.homeWrapper {
     overflow: auto;
     height: 100%;
+}
+
+.content {
+    @include appMargin;
 }

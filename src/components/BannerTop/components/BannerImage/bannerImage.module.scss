@@ -19,7 +19,7 @@
     -moz-animation: blur 1s forwards;
 
     @media #{$BREAKPOINT-TABLET-LAND} {
-        // background-position: 0px -70px;
+        background-size: 100% auto;
     }
 }
 

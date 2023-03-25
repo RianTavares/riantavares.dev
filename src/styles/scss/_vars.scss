@@ -1,5 +1,6 @@
 @import "react-toggle/style.css";
 @import '../../assets/fonts/fonts';
+@import './breakpoints';
 
 :root {
     --color-brand-primary:#7EC6B3;
@@ -59,6 +60,10 @@
     --color-text-primary: #1F1F23;
     --position-menu-hamburguer-bg: center bottom;
     --overlay-menu-hamburguer: rgba(0,0,0,.6);
+
+    --fadeout-background: transparent linear-gradient(180deg, #E4E4E4 0%, #E4E4E400 100%) 0% 0% no-repeat padding-box;
+
+    --mac-mask-banner: url('../../assets/images/mask-banner-white.png');
 }
 
 [data-theme="dark"] {
@@ -67,6 +72,9 @@
     --color-text-primary: #F2F2F2;
     --position-menu-hamburguer-bg: center top;
     --overlay-menu-hamburguer: rgba(255, 255, 255, 0.2);
+    --fadeout-background: transparent linear-gradient(180deg, var(--color-black-0) 0%, #1212140A 100%) 0% 0% no-repeat padding-box;
+
+    --mac-mask-banner: url('../../assets/images/mask-banner.png');
 
 }
 
@@ -203,59 +211,3 @@ $shadows: (
     l: 0px 8px 16px rgba(0, 0, 0, 0.12),
     xl: 0px 12px 32px rgba(0, 0, 0, 0.12),
 );
-
-    // :root {
-    //     --color-brand-primary:#7EC6B3;
-    //     --color-brand-secondary:#F2F2F2;
-    //     --color-green-90:#1A473C; 
-    //     --color-green-80:#056152;
-    //     --color-green-70:#089b83;
-    //     --color-green-60:#57c7b4;
-    //     --color-green-50:#A1D6C9;
-    //     --color-green-40:#c9ede7;
-    //     --color-green-30:#e0f5f1;
-    //     --color-green-20:#f0faf8;
-    //     --color-green-10:#f7fcfb;
-    //     --color-background:#F2F2F2;
-    //     // --color-background-dark:#1F1F23;
-    //     --color-black-0:#000000; 
-    //     --color-black-80:#0c0c0e;
-    //     --color-black-70:#0c0d0d;
-    //     --color-black-60:#121214;
-    //     --color-black-50:#1F1F23; 
-    //     --color-black-40:#2D2D31;
-    //     --color-black-30:#1f1f1f;
-    //     --color-black-20:#333333;
-    //     --color-black-10:#797979;
-    //     --color-white-80:#8f8f8f;
-    //     --color-white-70:#b8b8b8;
-    //     --color-white-60:#dddddd;
-    //     --color-white-50:#ebebeb; 
-    //     --color-white-40:#f5f5f5;
-    //     --color-white-30:#f2f2f2;
-    //     --color-white-20:#f1f1f1;
-    //     --color-white-10:#fafafa;
-    //     --color-white-0: #ffffff;
-
-    //     --space-0-5x: 4px;
-    //     --space-1x: 8px;
-    //     --space-1-5x: 12px;
-    //     --space-2x: 16px;
-    //     --space-2-5x: 20px;
-    //     ---space-3x: 24px;
-    //     --space-4x: 32px;
-    //     --space-5x: 40px;
-    //     --space-6x: 48px;
-    //     --space-7x: 56px;
-    //     --space-8x: 64px;
-    //     --space-9x: 72px;
-    //     --space-10x: 80px;
-    //     --space-11x: 88px;
-    //     --space-12x: 96px;
-
-    //     --theme-font-primary: "Gotham Pro",-apple-system-font,Arial,Helvetica,sans-serif;
-    //     --theme-font-secondary: "Segoe UI",-apple-system-font,Arial,Helvetica,sans-serif;
-
-    //     --theme-transition-duration-base: 250ms;
-    //     --theme-form-elements-height: 48px;
-    // }

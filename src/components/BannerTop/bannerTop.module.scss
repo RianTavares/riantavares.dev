@@ -2,7 +2,6 @@
 
 .bannerTop {
     width: 100%;
-    height: 100%;
     height: 356px;
     position: relative;
     
@@ -10,7 +9,7 @@
         height: 556px;
     }
 
-    @media #{$BREAKPOINT-TABLET} {
+    @media #{$BREAKPOINT-TABLET-LAND} {
         height: 756px;
     }
     
@@ -24,7 +23,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url('../../assets/images/mask-banner.png');
+    background-image: var(--mac-mask-banner);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;
@@ -48,8 +47,4 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-}
-
-.fadeoutWrapper {
-    
 }

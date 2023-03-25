@@ -1,16 +1,32 @@
+@import '../../styles/scss/mixins';
+
 .aboutMe {
     position: relative;
     width: 100%;
     height: 100%;
+    padding-top: var(--space-8x);
 }
 
 .fadeoutWrapper {
     position: absolute;
     top: 0;
-    left: 0;
+    left: (calc(-1 * var(--space-5x) / 2));
 
     height: 137px;
-    width: 100%;
+    width: 100vw;
 
-    background: transparent linear-gradient(180deg, var(--color-black-0) 0%, #1212140A 100%) 0% 0% no-repeat padding-box;
+    background: var(--fadeout-background);
+}
+
+.aboutMeInfoWrapper {
+    width: 100%;
+    height: 560px;
+}
+
+.title {
+    @include sectionTitle;
+}
+
+.text {
+    @include defaultText;
 }
