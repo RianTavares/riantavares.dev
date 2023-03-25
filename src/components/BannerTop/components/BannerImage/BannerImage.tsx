@@ -2,6 +2,7 @@ import React from "react";
 import styles from './bannerImage.module.scss';
 import Image from "next/image";
 import Logo from '../../../../assets/images/rian-tavares-logo.png';
+import { Slogan } from "../Slogan";
 
 export const BannerImage = () => {
   return (
@@ -11,6 +12,7 @@ export const BannerImage = () => {
 
         <div className={styles.logoWrapper}>
           <Image className={styles.logo} src={Logo} alt="Rian Tavares Dev Logo"/>
+          <Slogan />
         </div>
     </div>
   );
