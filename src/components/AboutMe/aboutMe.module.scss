@@ -1,4 +1,4 @@
-@import '../../styles/scss/mixins';
+@import '@/styles/mixins';
 
 .aboutMe {
     position: relative;
@@ -10,17 +10,30 @@
 .fadeoutWrapper {
     position: absolute;
     top: 0;
-    left: (calc(-1 * var(--space-5x) / 2));
+    left: 0;
 
     height: 137px;
     width: 100vw;
 
     background: var(--fadeout-background);
+    z-index: 3;
 }
 
 .aboutMeInfoWrapper {
-    width: 100%;
-    height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include appMargin; 
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        flex-direction: row;
+    }
+}
+
+.info {
+    @include overlapReactCircles;
 }
 
 .title {
@@ -29,4 +42,91 @@
 
 .text {
     @include defaultText;
+    text-align: justify;
+    white-space: pre-line;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        max-width: 400px;
+        text-align: left;
+    }
+}
+
+.profile {
+    position: relative;
+    margin: var(---space-3x) 0 0 0;
+    text-align: center;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        margin: var(---space-3x) 0 0 var(--space-9x);
+
+    }
+}
+
+.profilePicWrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.profilePicWrapper::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2112px;
+    height: 2112px;
+    background: url('../../assets/images/react-protons-neutrons.svg') center center no-repeat;
+    opacity: var(--react-protons-opacity);
+}
+
+.profilePicWrapper::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    height: 1500px;
+    border-radius: 50%;
+    margin: 0;
+    background: rgba(8, 155, 131, 0.2);
+    z-index: -1;
+    background:rgb(8, 155, 131);
+    background: -webkit-radial-gradient(circle, rgba(8, 155, 131, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+    background: -o-radial-gradient(circle, rgba(8, 155, 131, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(8, 155, 131, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.profilePic {
+    @include overlapReactCircles;
+    max-width: 213px;
+    height: auto;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        max-width: 380px;
+    }
+}
+
+.patchText {
+    font-family: var(--theme-font-primary);
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.patchNumber {
+    font-size: 35px;
+}
+
+.patchPlus {
+    font-size: 35px;
+    color: var(--color-green-50);
+}
+
+.patchStrongText {
+    color: var(--color-green-50);
 }

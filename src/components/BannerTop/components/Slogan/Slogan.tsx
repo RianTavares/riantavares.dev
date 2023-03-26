@@ -1,8 +1,9 @@
 import React from "react";
 import styles from './slogan.module.scss';
+import localesService from "@/locales/locales.service";
 
 export const Slogan = () => {
   return (
-    <p className={styles.slogan}>mais de 5 anos dando vida a sistemas</p>
+    <p className={styles.slogan}>{localesService.translate('components.slogan.phrase')}</p>
   );
 };

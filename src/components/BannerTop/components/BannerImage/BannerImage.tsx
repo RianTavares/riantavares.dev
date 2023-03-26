@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './bannerImage.module.scss';
 import Image from "next/image";
-import Logo from '../../../../assets/images/rian-tavares-logo.png';
+import Logo from '../../../../assets/images/rian-tavares-logo.svg';
 import { Slogan } from "../Slogan";
 
 export const BannerImage = () => {

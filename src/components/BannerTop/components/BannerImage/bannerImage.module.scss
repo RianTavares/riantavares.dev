@@ -1,4 +1,4 @@
-@import '../../../../styles/scss/breakpoints';
+@import '@/styles/breakpoints';
 
 .bannerImageWrapper {
     position: relative;
@@ -54,11 +54,15 @@
 }
 
 .logo {
-    height: 80px;
-    width: 270px;
+    max-width: 270px;
+    width: 100%;
 
+    @media #{$BREAKPOINT-TABLET} {
+        max-width: 380px;
+
+    }
+    
     @media #{$BREAKPOINT-TABLET-LAND} {
-        height: 180px;
-        width: 590px;
+        max-width: 680px;
     }
 }

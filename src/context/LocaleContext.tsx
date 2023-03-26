@@ -35,7 +35,7 @@ export const LocaleProvider = ({children}: WithChildrenProps) => {
     const locales = Object.values(LANGUAGES);
 
     const setLocaleService = (locale: string) => {
-        localeService.setTopLevelLocale(locales, 'en')
+        localeService.setTopLevelLocale(locales, locale);
         setIsReady(!isReady);
     }
     

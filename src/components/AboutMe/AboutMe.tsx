@@ -1,19 +1,51 @@
 import React from "react";
 import styles from './aboutMe.module.scss';
+import Image from "next/image";
+import Profile from '../../assets/images/rian-tavares-dev-profile.png';
+import localesService from "@/locales/locales.service";
+import { Patch } from "../Patch";
 
 export const AboutMe = () => {
     return (
         <section className={styles.aboutMe}>
             <div className={styles.fadeoutWrapper}></div>
             <section className={styles.aboutMeInfoWrapper}>
-                <h1 className={styles.title}>OLÁ,</h1>
-                <p className={styles.text}>
-                    me chamo Rian Tavares. Sou desenvolvedor de software nascido e criado no Rio de Janeiro e baseado, 
-                    atualmente em Munique, Alemanha. Tenho aproximadamente 7 anos de experiência. Sou um entusiasta do mundo UI/UX, 
-                    sou mentor nas horas vagas e sonho em ajudar as pessoas utilizando meus conhecimentos.
-                </p>
-            </section>
 
+                <section className={styles.info}>
+                    <h1 className={styles.title}>{localesService.translate('components.aboutMe.aboutMeStarts')}</h1>
+                    <p className={styles.text}>
+                        {localesService.translate('components.aboutMe.aboutMeText')}
+                    </p>
+                </section>
+
+                <section className={styles.profile}>
+                    <section className={styles.profilePicWrapper}>
+                        <Image className={styles.profilePic} src={Profile} alt="Rian Tavares Dev" />
+                        <Patch
+                            style={{ 
+                                bottom: '-45px', 
+                                left: '-40px' 
+                            }}
+                            pacthStyle={{
+                                width: 130, 
+                                height: 130, 
+                            }}>
+                            <p className={styles.patchText}><span className={styles.patchNumber}>50</span><span className={styles.patchPlus}>+</span> Projetos <span className={styles.patchStrongText}>Completos</span></p> 
+                        </Patch>
+                        <Patch
+                            style={{ 
+                                top: '-20px', 
+                                right: '-35px' 
+                            }}
+                            pacthStyle={{
+                                width: 130, 
+                                height: 130, 
+                            }}>
+                            <p className={styles.patchText}><span className={styles.patchNumber}>5</span><span className={styles.patchPlus}>+</span> <br /> Anos de <span className={styles.patchStrongText}>experiência</span></p> 
+                        </Patch>
+                    </section>
+                </section>
+            </section>
         </section>
     )
 }

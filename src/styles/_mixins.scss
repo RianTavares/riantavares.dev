@@ -1,0 +1,41 @@
+@import './breakpoints';
+
+@mixin sectionTitle {
+    font-family: var(--theme-font-primary);
+    font-size: 46px;
+    text-transform: uppercase;
+    color: #7EC6B3;
+    
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        font-size: 96px;
+    }
+}
+
+@mixin defaultText {
+    font-family: var(--theme-font-secondary);
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        font-size: 22px;
+    }
+}
+
+@mixin appMargin {
+    width: calc(100% - var(--space-6x));
+    margin: 0 auto;
+
+    @media #{$BREAKPOINT-TABLET} {
+        width: calc(100% - 192px);
+    }
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        max-width: 1000px;
+    }
+}
+
+@mixin overlapReactCircles {
+    position: relative;
+    z-index: 2;   
+}

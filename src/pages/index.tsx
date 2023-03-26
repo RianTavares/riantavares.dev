@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '@/styles/globals.module.scss'
-import Home from './Home';
+
 import { AppBar } from '@/components/AppBar';
+import Home from './Home';
+import styles from './index.module.scss'
 
 export default function HomePage() {
     return (

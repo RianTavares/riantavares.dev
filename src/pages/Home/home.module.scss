@@ -1,4 +1,4 @@
-@import '../../styles/scss/mixins';
+@import '@/styles/mixins';
 
 .homeWrapper {
     overflow: auto;
@@ -6,5 +6,6 @@
 }
 
 .content {
-    @include appMargin;
+    color: #fff;
+    overflow-x: hidden;
 }
