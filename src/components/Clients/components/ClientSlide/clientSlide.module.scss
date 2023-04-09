@@ -1,0 +1,27 @@
+@import '../../../../styles/mixins';
+
+.clientSlide {
+    @include overlapReactCircles;
+
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        padding-left: var(--space-4x);
+        width: 80vw;
+    }
+}
+
+.logo {
+    max-width: 200px;
+    width: 100%;
+    height: 100%;
+}
+
+.logoContainer {
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}

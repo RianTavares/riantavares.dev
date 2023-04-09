@@ -10,12 +10,12 @@ type PatchProsp = {
 
 export const Patch = ({ children, style, pacthStyle }: PatchProsp) => {
     return (
-        <div className={styles.center} style={{ ...style }}>
-          <div className={styles.thirteen} style={{ ...pacthStyle }}>
-            <div className={styles.children}>
-              {children}
-            </div>
+      <div className={styles.center} style={{ ...style }}>
+        <div className={styles.thirteen} style={{ ...pacthStyle }}>
+          <div className={styles.children}>
+            {children}
           </div>
         </div>
+      </div>
     )
 }

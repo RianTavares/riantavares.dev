@@ -54,7 +54,7 @@
     padding: 25px 10px;
     margin-left: 16px;
     transform: translateZ(0);
-    border-radius: var(--border-radius);
+    border-radius: 50%;
     overflow: hidden;
     box-shadow: 0px 2px 8px -1px #0000001a;
   }
@@ -69,22 +69,23 @@
   /* Conic Gradient Animation */
   .thirteen::before {
     animation: 6s rotate linear infinite;
-    width: 200%;
-    height: 200%;
+    width: 103%;
+    height: 103%;
     background: var(--tile-border);
+    border-radius: 50%;
   }
   
   /* Inner Square */
   .thirteen::after {
     inset: 0;
-    padding: 1px;
-    border-radius: var(--border-radius);
+    padding: 2px;
     background: linear-gradient(
       to bottom right,
       rgba(var(--tile-start-rgb), 1),
       rgba(var(--tile-end-rgb), 1)
     );
     background-clip: content-box;
+    border-radius: 50%;
   }
   
   @media (prefers-reduced-motion) {

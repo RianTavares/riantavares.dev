@@ -1,0 +1,114 @@
+@import '@/styles/mixins';
+
+.clients {
+    position: relative;
+}
+
+
+.titleContainer {
+    position: absolute;
+    top: var(--space-6x);
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 50%;
+    z-index: 3;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        left: 80px;
+        top: 150px;
+        width: 170px;
+        z-index: 4;
+        margin: unset;
+    }
+}
+
+.title {
+    text-align: center;
+    font-family: var(--theme-font-primary);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        font-size: 32px;
+    }
+}
+
+.subtitle {
+    text-align: center;
+    font-family: var(--theme-font-primary);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        font-size: 22px;
+    }
+}
+
+.clientsContainer {
+    height: 348px;
+    width: 348px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    @include overlapReactCircles;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        margin: unset;
+        z-index: 3;
+    }
+}
+
+.bubble {
+    height: 348px;
+    width: 348px;
+    border-radius: 50%;
+    background: -webkit-linear-gradient(318.67deg, rgba(255, 255, 255, 0.4) 18.45%, rgba(255, 255, 255, 0.1) 73.67%);
+    background: -o-linear-gradient(318.67deg, rgba(255, 255, 255, 0.4) 18.45%, rgba(255, 255, 255, 0.1) 73.67%);
+    background: linear-gradient(131.33deg, rgba(255, 255, 255, 0.4) 18.45%, rgba(255, 255, 255, 0.1) 73.67%);
+    -webkit-box-shadow: 0px -2px 1px rgb(255 255 255 / 80%), 0px 2px 1px rgba(8, 155, 131, 0.5);
+    box-shadow: 0px -2px 1px rgb(255 255 255 / 80%), 0px 2px 1px rgb(8 155 131 / 50%);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); 
+    z-index: 1;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+}
+
+.miniBubble1, .miniBubble2, .miniBubble3 {
+    position: absolute;
+    
+    border-radius: 50%;
+    background: transparent linear-gradient(53deg, var(--color-green-50) 0%, #089B83 100%) 0% 0% no-repeat padding-box;
+    z-index: -1;
+
+}
+
+.miniBubble1 {
+    width: 63px;
+    height: 63px;
+    top: 90px;
+    left: -9px;
+}
+
+.miniBubble2 {
+    width: 90px;
+    height: 90px;
+    top: 6px;
+    right: 15px;
+}
+
+.miniBubble3 {
+    width: 32px;
+    height: 32px;
+    bottom: 0px;
+    right: 45px;
+}

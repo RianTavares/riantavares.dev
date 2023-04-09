@@ -34,8 +34,8 @@ export const AboutMe = () => {
                         </Patch>
                         <Patch
                             style={{ 
-                                top: '-20px', 
-                                right: '-35px' 
+                                top: '-65px', 
+                                right: '-30px' 
                             }}
                             pacthStyle={{
                                 width: 130, 

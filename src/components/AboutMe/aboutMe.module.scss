@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: var(--space-8x);
+    padding-top: var(--space-12x);
 }
 
 .fadeoutWrapper {
@@ -34,6 +34,11 @@
 
 .info {
     @include overlapReactCircles;
+    order: 2;
+    
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        order: 1;
+    }
 }
 
 .title {
@@ -53,10 +58,12 @@
 
 .profile {
     position: relative;
-    margin: var(---space-3x) 0 0 0;
+    margin: var(--space-4x) 0 0 0;
     text-align: center;
+    order: 1;
 
     @media #{$BREAKPOINT-TABLET-LAND} {
+        order: 2;
         margin: var(---space-3x) 0 0 var(--space-9x);
 
     }

@@ -1,0 +1,23 @@
+@import '@/styles/mixins';
+
+.specialty {
+    width: 100%;
+    height: 500px;
+    border: solid 5px var(--color-black-10);
+    background-color: var(--color-background);
+    @include overlapReactCircles;
+
+    margin-bottom: var(--space-4x);
+
+    @media #{$BREAKPOINT-TABLET} {
+        max-width: 240px;
+    }
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        max-width: 340px;
+    }
+
+    @media #{$BREAKPOINT-DESK} {
+        max-width: 500px;
+    }
+}

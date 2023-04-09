@@ -2,11 +2,16 @@
 
 @mixin sectionTitle {
     font-family: var(--theme-font-primary);
-    font-size: 46px;
+    font-size: 38px;
     text-transform: uppercase;
     color: #7EC6B3;
-    
+    font-weight: 900;
+    margin-top: var(--space-12x);
+    margin-bottom: var(--space-4x);
+    @include overlapReactCircles;
+
     @media #{$BREAKPOINT-TABLET-LAND} {
+        margin-top: calc(2 * var(--space-12x));
         font-size: 96px;
     }
 }
