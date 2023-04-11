@@ -15,6 +15,7 @@ let _locales: any;
 let _locale: any;
 
 const setTopLevelLocale = (locales: any, locale: any) => {
+    console.log('entrei: ', locale)
     _locales = locales;
     _locale = locale;
 }

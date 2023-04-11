@@ -2,7 +2,8 @@
 export default {
     aboutme: 'Sobre mim',
     myjob: 'O que eu faço',
-    portfolio: 'Portfolio',
+    portfolio: 'Portfólio',
     testimony: 'Depoimentos',
     contact: 'Fale comigo',
+    clients: 'Parceiros',
 }

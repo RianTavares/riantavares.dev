@@ -52,6 +52,7 @@
     --theme-form-elements-height: 48px;
 
     --color-background:#F2F2F2;
+    --color-input-background: #7EC6B3;
     --app-bar-background:#A1D6C9;
     --color-text-primary: #1F1F23;
     --position-menu-hamburguer-bg: center bottom;
@@ -112,6 +113,7 @@ a {
 [data-theme="dark"] {
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --color-input-background: #1A473C;
 
     --tile-start-rgb: 31, 31, 35;
     --tile-end-rgb: 2, 5, 19;

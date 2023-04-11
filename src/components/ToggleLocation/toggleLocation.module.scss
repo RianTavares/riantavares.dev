@@ -1,18 +1,18 @@
 @import '@/styles/mixins';
 
-.darkModeToggle {
+.toggleLocation {
     width: 0;
     height: 0;
     visibility: hidden;
 }
 
-.toggleLabel {
+.locationToggleLabel {
     display: flex;
     justify-content: space-between;
 
     width: 100px;
     height: 30px;
-    background-color: var(--color-brand-primary);
+    background-color: var(--color-input-background);
     border-radius: 100px;
     position: relative;
     cursor: pointer;
@@ -21,7 +21,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.toggleLabel::after {
+.locationToggleLabel::after {
     content: "";
     width: 20px;
     height: 20px;
@@ -33,34 +33,31 @@
     transition: 0.5s;
   }
 
-.darkModeToggle:checked + .toggleLabel:after {
+.toggleLocation:checked + .locationToggleLabel:after {
     left: calc(100% - 4px);
     transform: translateX(-100%);
 }
 
-.darkModeToggle:checked + .toggleLabel {
-    background-color: var(--color-green-90);
-}
-
-.toggleLabel:active:after {
+.locationToggleLabel:active:after {
     width: 40px;
 }
 
-.moonIcon, .sunIcon {
+.enShortCut, .ptShortCut {
+    font-family: var(--theme-font-secondary);
+    color: #F2F2F2;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
     display: flex;
+    justify-content: center;
     align-items: center;
-    svg {
-        width: 13px!important;
-        path {
-            color: #FFF!important;
-        }
-    }
 }
 
-.moonIcon {
+.enShortCut {
     margin-left: 8px;
 }
 
-.sunIcon {
+.ptShortCut {
     margin-right: 8px;
 }

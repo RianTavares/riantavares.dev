@@ -5,4 +5,5 @@ export default {
     portfolio: 'Portfolio',
     testimony: 'Testimonies',
     contact: 'Talk to me',
+    clients: 'Partners',
 }

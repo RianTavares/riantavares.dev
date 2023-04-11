@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import styles from './appBar.module.scss';
+import React, { useEffect, useState, useContext } from 'react';
+
 import { Hamburguer } from './components/Hamburguer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { Link } from './components/Link';
-import localesService from '@/locales/locales.service';
+import { Settings } from '../Settings';
+
+import { LocaleContext } from '@/context/LocaleContext';
+import styles from './appBar.module.scss';
 
 export const AppBar = () => {
     const [styleTop, setStyleTop] = useState('0');
+    const [openSettings, setOpenSetting] = useState(false);
+    const { translate } = useContext(LocaleContext);
 
 
     const autoHideMenuOnScroll = (prevScrollpos: number) => () => {
@@ -21,7 +26,7 @@ export const AppBar = () => {
     
       prevScrollpos = currentScrollPos;
     };
-    
+
     useEffect(() => {
       let prevScrollpos = window.pageYOffset;
       const wrappedHandleScroll = autoHideMenuOnScroll(prevScrollpos);
@@ -38,14 +43,18 @@ export const AppBar = () => {
             <section className={styles.appBarWrapper}>
                 <Hamburguer />
                   <nav className={styles.deskNavigation}>
-                    <Link url="#">{localesService.translate('components.appBar.aboutme')}</Link>
-                    <Link url="#">{localesService.translate('components.appBar.myjob')}</Link>
-                    <Link url="#">{localesService.translate('components.appBar.portfolio')}</Link>
-                    <Link url="#">{localesService.translate('components.appBar.testimony')}</Link>
-                    <Link url="#">{localesService.translate('components.appBar.contact')}</Link>
+                    <Link url="#aboutMe">{translate('components.appBar.aboutme')}</Link>
+                    {/* <Link url="#">{translate('components.appBar.myjob')}</Link> */}
+                    <Link url="#clients">{translate('components.appBar.clients')}</Link>
+                    <Link url="#portfolio">{translate('components.appBar.portfolio')}</Link>
+                    {/* <Link url="#">{translate('components.appBar.testimony')}</Link> */}
+                    {/* <Link url="#">{translate('components.appBar.contact')}</Link> */}
                   </nav>
                 <section className={styles.iconWrapper}>
+                  <button className={styles.iconButton} onClick={() => setOpenSetting(!openSettings)}>
                     <FontAwesomeIcon className={styles.settingsIcon} icon={faCog} />
+                  </button>
+                    <Settings isOpen={openSettings} onClickOutside={() => setOpenSetting(false)} />
                 </section>
             </section>
         </header>

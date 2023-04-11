@@ -1,0 +1,63 @@
+@import '@/styles/mixins';
+
+.settings {
+    position: absolute;
+    right: 18px;
+    top: 70px;
+
+    
+    @media #{$BREAKPOINT-DESK} {
+        right: 27px;
+        top: 115px;
+    }
+
+    width: 200px;
+    min-height: 150px;
+    border-radius: 10px;
+    background-color: var(--color-background);
+    padding: var(--space-2x);
+    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.50);
+
+    opacity: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4x);
+
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    transform: translateY(10px);
+    -webkit-transition: all var(--theme-transition-duration-base) ease-out;
+    -moz-transition: all var(--theme-transition-duration-base) ease-out;
+    -ms-transition: all var(--theme-transition-duration-base) ease-out;
+    -o-transition: all var(--theme-transition-duration-base) ease-out;
+    transition: all var(--theme-transition-duration-base) ease-out;
+
+    &.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+}
+
+// triangle
+.settings:after {
+    content: " ";
+    border-left: solid transparent 10px;
+    border-right: solid transparent 10px;
+    border-bottom: solid var(--color-background) 10px;
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: -10px;
+    right: 11px;
+}
+
+.title {
+    font-family: var(--theme-font-secondary);
+    color: var(--color-text-primary);
+    margin-bottom: -12px;
+    padding: 0;
+}
