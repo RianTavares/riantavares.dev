@@ -1,0 +1,103 @@
+@import '@/styles/mixins';
+@import '@/styles/breakpoints';
+
+.footer {
+    background-color: var(--footer-background);
+    margin-top: calc(2 * var(--space-12x));
+}
+
+.footerContainer {
+    @include appMargin;
+    padding-top: var(--space-4x);
+
+    @media #{$BREAKPOINT-TABLET} {
+        display: flex; 
+    }  
+}
+
+.imageContainer {
+    width: 208px;  
+
+    @media #{$BREAKPOINT-TABLET} {
+          width: 346px;  
+    }  
+}
+
+.logo {
+    width: 100%;
+}
+
+.footerNavigation {
+    margin-top: var(--space-4x);
+    margin-bottom: var(--space-12x);
+
+    a {
+        margin-bottom: var(--space-2x)!important;
+    }
+
+    @media #{$BREAKPOINT-TABLET} {
+        margin-left: var(--space-12x);
+        margin-top: 10px;
+        
+        a {
+            margin-bottom: var(--space-4x);
+        }
+    }  
+
+}
+
+.copyrightContainer {
+    background-color: var(--color-black-40);
+    width: 100%;
+}
+
+.copyrightContent {
+    @include appMargin;
+    padding-bottom: var(--space-4x);
+    padding-top: var(--space-4x);
+
+    @media #{$BREAKPOINT-TABLET} {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    } 
+}
+
+.copyright {
+    font-family: var(--theme-font-primary);
+    font-size: 14px;
+    color: var(--copyright-color);
+}
+
+.socialDesk {
+    display: none;
+
+    @media #{$BREAKPOINT-TABLET} {
+        display: block;
+    }
+}
+
+.socialMobi {
+    display: block;
+
+    @media #{$BREAKPOINT-TABLET} {
+        display: none;
+    }
+}
+
+.developedBy {
+    display: none;
+    color: white;
+    font-family: var(--copyrigth-font);
+    font-size: 18px;
+
+    svg {
+        path {
+            color: var(--color-brand-primary);
+        }
+    }
+
+    @media #{$BREAKPOINT-TABLET} {
+        display: block;
+    }
+}

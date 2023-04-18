@@ -5,6 +5,7 @@ import slogan from "./slogan";
 import clients from "./clients";
 import portfolio from "./portfolio";
 import patches from "./patches";
+import footer from "./footer";
 
 export default {
     components: {
@@ -14,5 +15,6 @@ export default {
         clients,
         portfolio,
         patches,
+        footer,
     }
 };

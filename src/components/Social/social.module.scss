@@ -1,0 +1,24 @@
+@import '@/styles/breakpoints';
+
+.social {
+    display: flex;
+    gap: var(--space-1-5x);
+
+
+    @media #{$BREAKPOINT-TABLET} {
+        gap: var(---space-3x); 
+    }  
+
+    margin-top: var(--space-2x);
+    color: var(--color-brand-primary);
+
+    a {
+        svg {
+            font-size: 2em;
+
+            @media #{$BREAKPOINT-TABLET} {
+                font-size: 3em;
+            } 
+        }
+    }
+}

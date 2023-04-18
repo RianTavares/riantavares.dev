@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { LocaleContext } from "@/context/LocaleContext";
 
-import { BannerTop } from "@/components/BannerTop";
-import { AboutMe } from "@/components/AboutMe";
-import { Clients } from "@/components/Clients";
-import { Portfolio } from '@/components/Portfolio';
+import { 
+    AboutMe, 
+    BannerTop, 
+    Clients, 
+    Footer, 
+    Portfolio 
+} from "@/components";
 import styles from './home.module.scss';
 
 const Home = () => {
@@ -12,7 +15,7 @@ const Home = () => {
     return (
         <section className={styles.homeWrapper}>
             <BannerTop />
-            <section className={styles.content}>
+            <main className={styles.content}>
                 <AboutMe />
                 <section className={styles.clients}>
                     <Clients />
@@ -21,8 +24,9 @@ const Home = () => {
                 <section>
                     <Portfolio />
                 </section>
+            </main>
 
-            </section>
+            <Footer />
         </section>
         )
     }

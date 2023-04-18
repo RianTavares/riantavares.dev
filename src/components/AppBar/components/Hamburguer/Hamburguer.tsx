@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styles from './hamburguer.module.scss';
 import clsx from "classnames";
-import { Link } from '../Link';
+import { Navigation } from '@/components/Navigation';
 import { LocaleContext } from '@/context/LocaleContext';
 
 export const Hamburguer = () => {
@@ -37,14 +37,7 @@ export const Hamburguer = () => {
                 })} 
             >
                 <section className={styles.slideBarNavWrapper}>
-                    <nav className={styles.mobiNav}>
-                        <Link url="#aboutMe">{translate('components.appBar.aboutme')}</Link>
-                        {/* <Link url="#">{translate('components.appBar.myjob')}</Link> */}
-                        <Link url="#clients">{translate('components.appBar.clients')}</Link>
-                        <Link url="#portfolio">{translate('components.appBar.portfolio')}</Link>
-                        {/* <Link url="#">{translate('components.appBar.testimony')}</Link> */}
-                        {/* <Link url="#">{translate('components.appBar.contact')}</Link> */}
-                    </nav>
+                    <Navigation className={styles.mobiNav} />
                 </section>
             </section>
         </>

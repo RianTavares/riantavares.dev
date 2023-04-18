@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Hamburguer } from './components/Hamburguer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { Link } from './components/Link';
+import { Navigation } from '../Navigation';
 import { Settings } from '../Settings';
 
 import { LocaleContext } from '@/context/LocaleContext';
@@ -42,14 +42,7 @@ export const AppBar = () => {
         <header className={styles.appBar} style={{ top: styleTop }}>
             <section className={styles.appBarWrapper}>
                 <Hamburguer />
-                  <nav className={styles.deskNavigation}>
-                    <Link url="#aboutMe">{translate('components.appBar.aboutme')}</Link>
-                    {/* <Link url="#">{translate('components.appBar.myjob')}</Link> */}
-                    <Link url="#clients">{translate('components.appBar.clients')}</Link>
-                    <Link url="#portfolio">{translate('components.appBar.portfolio')}</Link>
-                    {/* <Link url="#">{translate('components.appBar.testimony')}</Link> */}
-                    {/* <Link url="#">{translate('components.appBar.contact')}</Link> */}
-                  </nav>
+                  <Navigation className={styles.deskNavigation} />
                 <section className={styles.iconWrapper}>
                   <button className={styles.iconButton} onClick={() => setOpenSetting(!openSettings)}>
                     <FontAwesomeIcon className={styles.settingsIcon} icon={faCog} />
