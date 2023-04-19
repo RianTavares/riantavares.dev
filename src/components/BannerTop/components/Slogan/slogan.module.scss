@@ -16,5 +16,6 @@
     @media #{$BREAKPOINT-TABLET-LAND} {
         font-size: 1.8rem;
         max-width: 730px;
+        margin-top: var(--space-1x);
     }
 }

@@ -54,7 +54,7 @@ export const ThemeProvider = ({children}: WithChildrenProps) => {
         setIsLoading(false);
     },[detectColorScheme])
 
-    if(isLoading) return <div>Loading...</div>
+    if(isLoading) return null;
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme, isDark, setIsDark }}>

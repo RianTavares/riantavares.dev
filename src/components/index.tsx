@@ -3,3 +3,4 @@ export { BannerTop } from './BannerTop';
 export { Clients } from './Clients';
 export { Portfolio } from './Portfolio';
 export { Footer } from './Footer';
+export { AppBar } from './AppBar';
