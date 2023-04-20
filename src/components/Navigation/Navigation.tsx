@@ -11,10 +11,10 @@ export const Navigation = ({ className }: NavigationType) => {
 
     return (
         <nav className={className}>
-            <Link url="#aboutMe">{translate('components.appBar.aboutme')}</Link>
+            <Link url="/#aboutMe">{translate('components.appBar.aboutme')}</Link>
             {/* <Link url="#">{translate('components.appBar.myjob')}</Link> */}
-            <Link url="#clients">{translate('components.appBar.clients')}</Link>
-            <Link url="#portfolio">{translate('components.appBar.portfolio')}</Link>
+            <Link url="/#clients">{translate('components.appBar.clients')}</Link>
+            <Link url="/#portfolio">{translate('components.appBar.portfolio')}</Link>
             {/* <Link url="#">{translate('components.appBar.testimony')}</Link> */}
             {/* <Link url="#">{translate('components.appBar.contact')}</Link> */}
         </nav>

@@ -1,4 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
+
+import { LocaleContext } from '@/context/LocaleContext';
 
 import styles from './settings.module.scss';
 
@@ -13,6 +15,7 @@ type SettingProps = {
   
 export const Settings = ({ isOpen, onClickOutside }: SettingProps) => {
     const ref = useRef<HTMLBaseElement>(null);
+    const { translate } = useContext(LocaleContext);
 
     useEffect(() => {
         const keyDownHandler = (event: KeyboardEvent) => {
@@ -41,11 +44,11 @@ export const Settings = ({ isOpen, onClickOutside }: SettingProps) => {
           className={`${styles.settings} ${isOpen ? styles.open : ''}`}
         >
             <div>
-                <p className={styles.title}> Aparencia </p>
+                <p className={styles.title}> {translate('components.settings.appearance')} </p>
                 <DarkModeToggle />
             </div>
             <div>
-                <p className={styles.title}> Idioma </p>
+                <p className={styles.title}> {translate('components.settings.language')} </p>
                 <ToggleLocation />
             </div>
         </aside>

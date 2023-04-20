@@ -6,6 +6,7 @@ import clients from "./clients";
 import portfolio from "./portfolio";
 import patches from "./patches";
 import footer from "./footer";
+import settings from "./settings";
 
 export default {
     components: {
@@ -16,5 +17,6 @@ export default {
         portfolio,
         patches,
         footer,
+        settings,
     }
 };
