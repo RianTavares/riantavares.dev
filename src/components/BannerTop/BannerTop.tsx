@@ -4,23 +4,31 @@ import { BannerImage } from "./components/BannerImage";
 import Spline from '@splinetool/react-spline';
 
 export const BannerTop = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: 0,
-  });
+  const [isSlowConnection, setIsSlowConnection] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0 });
 
   const handleResize = () => {
-    setWindowSize({
-      width: window.innerWidth,
-    });
+    setWindowSize({ width: window.innerWidth });
   }
 
+  const checkConnectionSpeed = () => {
+    if (typeof window !== 'undefined' && window.navigator.connection) {
+      const connection = window.navigator.connection;
+      const slowSpeeds = ['slow-2g', '2g', '3g'];
+    
+      if (slowSpeeds.includes(connection.effectiveType)) {
+        setIsSlowConnection(true);
+      }
+    }
+  };
+
   useEffect(() => {
+    checkConnectionSpeed();
+
     if (typeof window !== 'undefined') {
       window.addEventListener("resize", handleResize);
-     
-      // Call the handler immediately so that the state gets updated with the initial window size.
       handleResize();
-      
+
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [])
@@ -32,10 +40,15 @@ export const BannerTop = () => {
   return (
     <section className={styles.bannerTop}> 
         <BannerImage />
-        {/* <div className={styles.macbook} /> */}
-        <div className={styles.macbook3D}>
-          <Spline scene={sceneUrl} />
-        </div>
+        {
+          isSlowConnection ? (
+            <div className={styles.macbook} />
+          ) : (
+            <div className={styles.macbook3D}>
+              <Spline scene={sceneUrl} />
+            </div>
+          )
+        }
         <div className={styles.mask} />
         <div className={styles.fadeoutWrapper}></div>
     </section>
