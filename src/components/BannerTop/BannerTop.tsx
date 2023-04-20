@@ -44,8 +44,8 @@ export const BannerTop = () => {
         <BannerImage />
         {/* <div className={styles.macbook} /> */}
         <div className={styles.macbook3D}>
-          {/* <Spline scene="https://prod.spline.design/EYDHmwEWTPiud8bl/scene.splinecode" /> */}
-          <RenderSpline />
+          <Spline scene="https://prod.spline.design/EYDHmwEWTPiud8bl/scene.splinecode" />
+          {/* <RenderSpline /> */}
         </div>
         {/* <div className={styles.mask} /> */}
     </section>
