@@ -59,11 +59,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    top: 200px;
+    top: 120px;
     margin: 0 auto;
 
     @media #{$BREAKPOINT-TABLET-LAND} {
-        top: 400px;
+        top: 200px;
     }
 
     div {
@@ -84,3 +84,15 @@
 //     height: 2112px;
 //     background: var(--mac-mask-banner) center center no-repeat;
 // }
+
+.fadeoutWrapper {
+    position: absolute;
+    bottom: -137px;
+    left: 0;
+
+    height: 137px;
+    width: 100vw;
+
+    background: var(--fadeout-background);
+    z-index: 3;
+}

@@ -7,19 +7,6 @@
     padding-top: var(--space-12x);
 }
 
-.fadeoutWrapper {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    height: 137px;
-    width: 100vw;
-
-    background: var(--fadeout-background);
-    z-index: 3;
-}
-
 .aboutMeInfoWrapper {
     display: flex;
     flex-direction: column;

@@ -9,45 +9,35 @@ export const BannerTop = () => {
   });
 
   const handleResize = () => {
-    // Set window width/height to state
     setWindowSize({
       width: window.innerWidth,
     });
-  }
-
-  const RenderSpline = () => {
-    if (windowSize.width >= 600) {
-      return <Spline scene="https://prod.spline.design/Nl-LBNQpmsqY8C0n/scene.splinecode" />
-    } else if (windowSize.width >= 975) {
-      return <Spline scene="https://prod.spline.design/s6-X5c0YASLbk6kV/scene.splinecode" />
-    } else if (windowSize.width >= 1280) {
-      console.log('here')
-      return <Spline scene="https://prod.spline.design/s6-X5c0YASLbk6kV/scene.splinecode" />
-    } else {
-      return <Spline scene="https://prod.spline.design/EYDHmwEWTPiud8bl/scene.splinecode" />
-    }
   }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener("resize", handleResize);
      
-      // Call handler right away so state gets updated with initial window size
+      // Call the handler immediately so that the state gets updated with the initial window size.
       handleResize();
       
-      // Remove event listener on cleanup
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [])
+
+  const sceneUrl = windowSize.width >= 975
+    ? "https://prod.spline.design/0Ihtl0UNAs7CjDNN/scene.splinecode"
+    : "https://prod.spline.design/EYDHmwEWTPiud8bl/scene.splinecode";
+
   return (
     <section className={styles.bannerTop}> 
         <BannerImage />
         {/* <div className={styles.macbook} /> */}
         <div className={styles.macbook3D}>
-          <Spline scene="https://prod.spline.design/EYDHmwEWTPiud8bl/scene.splinecode" />
-          {/* <RenderSpline /> */}
+          <Spline scene={sceneUrl} />
         </div>
-        {/* <div className={styles.mask} /> */}
+        <div className={styles.mask} />
+        <div className={styles.fadeoutWrapper}></div>
     </section>
   );
 };

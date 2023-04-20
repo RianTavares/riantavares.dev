@@ -10,7 +10,6 @@ export const AboutMe = () => {
     const { translate } = useContext(LocaleContext);
     return (
         <section id="aboutMe" className={styles.aboutMe}>
-            <div className={styles.fadeoutWrapper}></div>
             <section className={styles.aboutMeInfoWrapper}>
 
                 <section className={styles.info}>
