@@ -50,3 +50,37 @@
     right: 0;
     margin: 0 auto;
 }
+
+.macbook3D {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999999999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 200px;
+    margin: 0 auto;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        top: 400px;
+    }
+
+    div {
+        canvas {
+            margin: 0 auto;
+        }
+    }
+}
+
+// .macbook3D::before {
+//     content: "";
+//     position: absolute;
+//     z-index: -1;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 2112px;
+//     height: 2112px;
+//     background: var(--mac-mask-banner) center center no-repeat;
+// }
