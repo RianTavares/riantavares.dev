@@ -53,15 +53,16 @@
     --theme-form-elements-height: 48px;
 
     --color-background:#F2F2F2;
+    --color-background-dropshadow: rgb(31, 31, 35, .2);
     --color-input-background: #7EC6B3;
     --app-bar-background:#A1D6C9;
     --footer-background: #1F1F23;
     --color-text-primary: #1F1F23;
     --position-menu-hamburguer-bg: center bottom;
     --overlay-menu-hamburguer: rgba(0,0,0,.6);
-    --copyright-color: #92D8C9;
+    --static-brand-text-color: #92D8C9;
     --fadeout-background: transparent linear-gradient(180deg, #E4E4E4 0%, #E4E4E400 100%) 0% 0% no-repeat padding-box;
-
+    --underline-marker-color: rgba(126, 198, 179, .7);
     --mac-mask-banner: url('../assets/images/mask-banner-white.png');
 
     --react-protons-opacity: .1;
@@ -130,15 +131,18 @@ a {
     );
 
     --color-background:#1F1F23;
+    --color-background-dropshadow: rgba(242, 242, 242, .2);
     --footer-background: #121214;
     --app-bar-background:#121214;
     --color-text-primary: #F2F2F2;
+    --color-white-70: #121214;
     --position-menu-hamburguer-bg: center top;
     --overlay-menu-hamburguer: rgba(255, 255, 255, 0.2);
     --fadeout-background: transparent linear-gradient(180deg, var(--color-black-0) 0%, #1212140A 100%) 0% 0% no-repeat padding-box;
     --mac-mask-banner: url('../assets/images/mask-banner.png');
     --react-protons-opacity: 1;
-}
+    --underline-marker-color: rgba(26, 71, 60, .7);
+}   
 
 $breakpoints: (
     3xs: 0,

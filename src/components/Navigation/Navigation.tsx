@@ -6,7 +6,7 @@ type NavigationType = {
     className: string;
 };
 
-export const Navigation = ({ className }: NavigationType) => {
+export const NavLinks = ({ className }: NavigationType) => {
     const { translate } = useContext(LocaleContext);
 
     return (
@@ -20,3 +20,5 @@ export const Navigation = ({ className }: NavigationType) => {
         </nav>
     )
 }
+
+export const Navigation = React.memo(NavLinks);

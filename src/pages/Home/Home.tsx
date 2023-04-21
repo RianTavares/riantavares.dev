@@ -21,7 +21,7 @@ const Home = () => {
                     <Clients />
                 </section>
                 <p id="portfolio" className={styles.portfolio}>{translate('components.portfolio.title')}</p>
-                <section>
+                <section className={styles.portfolioSection}>
                     <Portfolio />
                 </section>
             </main>

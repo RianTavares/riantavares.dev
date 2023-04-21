@@ -4,7 +4,7 @@ import styles from './toggleTheme.module.scss';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const DarkModeToggle: React.FC = () => {
+export const ToggleThemeSwitch: React.FC = () => {
   const { toggleTheme, isDark } = useContext(ThemeContext);
 
   return (
@@ -29,3 +29,6 @@ export const DarkModeToggle: React.FC = () => {
     </>
   );
 };
+
+export const ToggleTheme = React.memo(ToggleThemeSwitch);
+

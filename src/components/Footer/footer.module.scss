@@ -25,6 +25,7 @@
 
 .logo {
     width: 100%;
+    height: auto;
 }
 
 .footerNavigation {
@@ -67,7 +68,7 @@
 .copyright {
     font-family: var(--theme-font-primary);
     font-size: 14px;
-    color: var(--copyright-color);
+    color: var(--static-brand-text-color);
 }
 
 .socialDesk {

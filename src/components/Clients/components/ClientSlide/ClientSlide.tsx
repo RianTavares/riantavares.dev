@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import styles from  './clientSlide.module.scss';
 import logoTest from '../../../../assets/images/nintendo-logo-test.png';
 import Image from "next/image";
 
-export const ClientSlide = () => {
+export const Slide = () => {
     const settings = {
       autoplay: true,
       dots: false,
@@ -68,3 +68,5 @@ export const ClientSlide = () => {
       </div>
     );
 }
+
+export const ClientSlide = React.memo(Slide);
