@@ -5,9 +5,13 @@
     right: 18px;
     top: 70px;
 
+    @media #{$BREAKPOINT-TABLET} {
+        right: 96px;
+    }
+
     
-    @media #{$BREAKPOINT-DESK} {
-        right: 27px;
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        right: 240px;
         top: 115px;
     }
 

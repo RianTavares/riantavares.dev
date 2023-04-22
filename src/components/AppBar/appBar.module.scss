@@ -1,10 +1,10 @@
 @import '@/styles/breakpoints';
+@import '@/styles/mixins';
 
 .appBar {
     height: 56px;
     width: 100%;
     background-color: var(--app-bar-background);
-    padding: 0 var(---space-3x);
     transition: top var(--theme-transition-duration-base);
 
     display: flex;
@@ -24,6 +24,8 @@
     
     display: flex;
     justify-content: space-between;
+
+    @include appMargin;
 }
 
 .iconButton {

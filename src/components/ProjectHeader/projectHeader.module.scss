@@ -1,0 +1,79 @@
+@import '@/styles/mixins';
+
+.header {
+    position: relative;
+    border-bottom: 1px solid var(--color-background);
+    box-shadow: 0 1px 4px 0 var(--color-background-dropshadow);
+}
+
+.headerContent {
+    @include appMargin;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-4x);
+
+    // 56 is the header bar height
+    padding-top: calc(56px + var(--space-11x));
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        // 100 is the desk header bar height
+        padding-top: calc(100px + var(--space-11x));
+    }
+}
+
+.infoContainer {
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        order: 2;
+        width: 50%;
+    }
+
+    @media #{$BREAKPOINT-DESK} {
+        width: 70%;
+    }
+}
+
+.title {
+    font-family: var(--theme-font-primary);
+    font-size: 1.7em;
+    color: var(--static-brand-text-color);
+    margin-bottom: var(--space-4x);
+    text-align: center;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        font-size: 3em;
+        text-align: left;
+    }
+}
+
+.brief {
+    font-family: var(--theme-font-secondary);
+    font-size: 16px;
+    color: var(--color-text-primary);
+    text-align: justify;
+}
+
+.imageContainer {
+    width: 200px;
+    display: flex;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        order: 1;
+        width: 50%;
+    }
+
+    @media #{$BREAKPOINT-DESK} {
+        width: 30%;
+    }
+}

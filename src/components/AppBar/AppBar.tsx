@@ -13,10 +13,10 @@ export const AppBar = () => {
   const [openSettings, setOpenSetting] = useState(false);
 
 
-  const autoHideMenuOnScroll = (prevScrollpos: number) => () => {
+  const autoHideMenuOnScroll = (prevScrollpos: number, aboutMeOffsetTop: number) => () => {
     const currentScrollPos = window.pageYOffset;
   
-    if (currentScrollPos <= 100) {
+    if (currentScrollPos <= aboutMeOffsetTop) {
       setStyleTop('0');
     } else {
       setStyleTop(prevScrollpos > currentScrollPos ? '0' : '-100px');
@@ -27,8 +27,11 @@ export const AppBar = () => {
 
   useEffect(() => {
     let prevScrollpos = window.pageYOffset;
-    const wrappedHandleScroll = autoHideMenuOnScroll(prevScrollpos);
-  
+    const aboutMeElement = document.getElementById('aboutMe');
+    const aboutMeOffsetTop = aboutMeElement?.offsetTop ?? 0;
+
+    const wrappedHandleScroll = autoHideMenuOnScroll(prevScrollpos, aboutMeOffsetTop);
+
     window.addEventListener('scroll', wrappedHandleScroll);
   
     return () => {
