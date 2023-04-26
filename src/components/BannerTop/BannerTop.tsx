@@ -1,14 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from './bannerTop.module.scss';
 import { BannerImage } from "./components/BannerImage";
 import Spline from '@splinetool/react-spline';
+import { SplineLoadContext } from "@/context/SplineLoadContext";
 
 export const BannerTop = () => {
   const [isSlowConnection, setIsSlowConnection] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0 });
+  const { setIsLoading } = useContext(SplineLoadContext)
 
   const handleResize = () => {
     setWindowSize({ width: window.innerWidth });
+  }
+
+  const handleLoadSpline = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }
 
   const checkConnectionSpeed = () => {
@@ -45,7 +53,7 @@ export const BannerTop = () => {
             <div className={styles.macbook} />
           ) : (
             <div className={styles.macbook3D}>
-              <Spline scene={sceneUrl} />
+              <Spline onLoad={handleLoadSpline} scene={sceneUrl} />
             </div>
           )
         }

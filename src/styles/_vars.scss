@@ -85,6 +85,17 @@
         #1A473C,
         #1A473C
         );
+
+    --atom-size: 180px;
+	--atom-color-hex: #A1D6C9;
+	--atom-color-rgb: 26, 71, 60;
+	--nucleus-size: calc(var(--atom-size) / 5);
+	--electron-color-hex: #089b83;
+	--electron-orbit-size: calc(var(--atom-size) / 2.5);
+	--electron-size: calc(var(--atom-size) / 25);
+	--electron-speed: 1.2s;
+	--electron-speed-alpha: 1s;
+	--electron-speed-omega: .8s;
 }
 
 * {
@@ -114,6 +125,11 @@ a {
 }
 
 [data-theme="dark"] {
+    --atom-color-hex: #A1D6C9;
+	--atom-color-rgb: 126 , 198, 179;
+	--electron-color-hex: #089b83;
+    --a: rgb(26, 71, 60);
+
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
     --color-input-background: #1A473C;
