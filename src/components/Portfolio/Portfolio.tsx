@@ -1,12 +1,46 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 
 import { JobCard } from './components/JobCard';
 import { Arrow } from './components/Arrow';
+import { LocaleContext } from '@/context/LocaleContext';
 
 import styles from './portfolio.module.scss';
 
+interface Project {
+  id: number;
+  name: string;
+  description: string;
+  date: string;
+  android: boolean;
+  android_url: string;
+  case: { [key: string]: any };
+  created_at: string;
+  ios: boolean;
+  ios_url: string | null;
+  locale: string;
+  localizations: any[];
+  post: string;
+  post_banner: { [key: string]: any };
+  post_title: string;
+  published_at: string;
+  see_more_button: string;
+  slug: string;
+  tags: any[];
+  updated_at: string;
+  web: boolean;
+  web_url: string | null;
+}
+
+
+async function getProjects(test: string) {
+  const res = await fetch(`https://content-manager-rt.herokuapp.com/projects?_locale=${test}&_sort=id:DESC`);
+  return res.json();
+}
+
 export const Portfolio = () => {
+  const { locale } = useContext(LocaleContext);
+  const [projects, setProjects] = useState<Project[]>([]);
 
   const settings = {
     className: `${styles['portfolio-slider']}`,
@@ -54,21 +88,21 @@ export const Portfolio = () => {
       },
     ],
   };
+
+
+  useEffect(() => {
+    getProjects(locale).then((data) => setProjects(data));
+  }, [locale]);
+
   return (
     <Slider {...settings}>
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
+      {projects.map((project) => (
+        <JobCard
+          imageSource={project.case.url}
+          title={project.name}
+          key={project.id} 
+        />
+      ))}
     </Slider>
   );
 };

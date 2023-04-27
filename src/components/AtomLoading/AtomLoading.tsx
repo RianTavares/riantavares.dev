@@ -3,11 +3,6 @@ import styles from './atomLoading.module.scss';
 
 export const AtomLoading = () => {
 
-    useEffect(() => {
-        const body = document.body;
-        body.classList.toggle(styles.atomLoading)
-    }, [])
-
     return (
         <div className={styles.main}>
             <div className={styles.atom}>

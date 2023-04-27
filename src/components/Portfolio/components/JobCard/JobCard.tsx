@@ -5,7 +5,12 @@ import Image from 'next/image';
 import styles from './jobCard.module.scss';
 import moedinha from '../../../../assets/images/moedinha.jpeg';
 
-export const JobCard = () => {
+type JobCardType = {
+  imageSource: string;
+  title: string;
+}
+
+export const JobCard = ({ imageSource, title }: JobCardType) => {
 
     const handleClick = () => {
         console.log('clicked');
@@ -13,11 +18,13 @@ export const JobCard = () => {
 
   return (
     <div className={styles.jobCard}>
-      <Image src={moedinha} alt="Moedinha" className={styles.image} />
+      <div className={styles.image}>
+        <Image src={imageSource} alt="Moedinha" width={100} height={100} layout="responsive" objectFit="contain"/>
+      </div>
 
       <div className={styles.infoContainer}>
         <div className={styles.info}>
-          <p className={styles.title}>JOB NAME</p>
+          <p className={styles.title}>{title}</p>
 
           <div className={styles.tagsContainer}>
             {/* {data.tags.map((item) => (
