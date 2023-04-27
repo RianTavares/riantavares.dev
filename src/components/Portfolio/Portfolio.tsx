@@ -54,7 +54,6 @@ export const Portfolio = () => {
     nextArrow: <Arrow type="next" />,
     prevArrow: <Arrow type="prev" />,
     centerMode: false,
-    centerPadding: '50px',
     pauseOnHover: true,
     responsive: [
       {
@@ -62,7 +61,8 @@ export const Portfolio = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          initialSlide: 0,
+          infinite: true,
+          initialSlide: 2,
           arrows: false,
         },
       },
@@ -71,7 +71,10 @@ export const Portfolio = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 0,
+          initialSlide: 1,
+          centerMode: true,
+          infinite: true,
+          centerPadding: '24px',
           arrows: false,
         },
       },
@@ -80,9 +83,10 @@ export const Portfolio = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 0,
+          initialSlide: 1,
           centerMode: true,
-          centerPadding: '30px',
+          infinite: true,
+          centerPadding: '24px',
           arrows: false,
         },
       },
@@ -100,7 +104,8 @@ export const Portfolio = () => {
         <JobCard
           imageSource={project.case.url}
           title={project.name}
-          key={project.id} 
+          tags={project.tags}
+          key={project.id}
         />
       ))}
     </Slider>

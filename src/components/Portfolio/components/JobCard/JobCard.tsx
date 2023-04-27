@@ -1,25 +1,33 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import Image from 'next/image';
+import { LocaleContext } from '@/context/LocaleContext';
 
 import styles from './jobCard.module.scss';
-import moedinha from '../../../../assets/images/moedinha.jpeg';
 
 type JobCardType = {
   imageSource: string;
   title: string;
+  tags: any[];
 }
 
-export const JobCard = ({ imageSource, title }: JobCardType) => {
+export const JobCard = ({ imageSource, title, tags}: JobCardType) => {
+  const { translate } = useContext(LocaleContext);
 
-    const handleClick = () => {
-        console.log('clicked');
-    }
+  const handleClick = () => {
+    console.log('clicked');
+  }
 
   return (
     <div className={styles.jobCard}>
-      <div className={styles.image}>
-        <Image src={imageSource} alt="Moedinha" width={100} height={100} layout="responsive" objectFit="contain"/>
+      <div className={styles.imageContainer}>
+        <Image 
+          src={imageSource} 
+          className={styles.image}
+          alt={title}
+          width={100} 
+          height={100} 
+          loading="eager"
+        />
       </div>
 
       <div className={styles.infoContainer}>
@@ -27,15 +35,15 @@ export const JobCard = ({ imageSource, title }: JobCardType) => {
           <p className={styles.title}>{title}</p>
 
           <div className={styles.tagsContainer}>
-            {/* {data.tags.map((item) => (
-              <div className="card__tag" key={item.id}>
-                <strong className="card__tag-text">{item.tag_name}</strong>
+            {tags.map((tag) => (
+              <div className={styles.tag} key={tag.id}>
+                <strong>{tag.tag_name}</strong>
               </div>
-            ))} */}
+            ))}
           </div>
 
-          <button type="button" className={styles.button} onClick={() => handleClick()}>
-            see more
+          <button type="button" className={styles.ctaButton} onClick={() => handleClick()}>
+            {translate('components.portfolio.seeMoreButton')}
           </button>
         </div>
       </div>

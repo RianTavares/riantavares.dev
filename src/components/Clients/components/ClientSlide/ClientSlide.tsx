@@ -47,22 +47,22 @@ export const Slide = () => {
       <div className={styles.clientSlide}>
         <Slider {...settings}>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" />
+            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
           </div>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" />
+            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
           </div>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" />
+            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
           </div>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" />
+            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
           </div>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" />
+            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
           </div>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" />
+            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
           </div>
         </Slider>
       </div>

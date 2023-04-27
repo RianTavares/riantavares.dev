@@ -9,7 +9,7 @@
     
     @media #{$BREAKPOINT-TABLET-LAND} {
         padding-left: var(--space-4x);
-        width: 80vw;
+        width: calc(100vw - 240px);
     }
 }
 
