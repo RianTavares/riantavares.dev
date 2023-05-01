@@ -1,0 +1,15 @@
+@import '@/styles/mixins';
+
+.projectPage {
+    overflow: auto;
+    height: 100%;
+}
+
+.projectContent {
+    min-height: 100vh;
+    background-color: var(--color-background);
+}
+
+.postBody {
+    @include appMargin;
+}
