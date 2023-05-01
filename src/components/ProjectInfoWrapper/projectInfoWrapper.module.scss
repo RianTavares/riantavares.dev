@@ -68,13 +68,22 @@
 .stackIconsContainer {
     display: flex;
     gap: var(--space-0-5x);
-
+    
     img {
         width: 43px;
         height: auto;
+        transition: transform .3s;
 
         @media #{$BREAKPOINT-TABLET-LAND} {
             width: 111px;
         }
+
+        @media #{$BREAKPOINT-DESK} {
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
     }
 }
+
+

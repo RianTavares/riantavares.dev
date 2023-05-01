@@ -1,24 +1,33 @@
 import React from 'react';
 import Image from 'next/image';
 
-import forcaMaxima from '../../assets/images/forca-maxima-app.png';
 import styles from './projectHeader.module.scss';
 
-export const ProjectHeader = () => {
+type ProjectHeaderType = {
+    imageSource: string;
+    title: string;
+    description: string;
+  }
+
+export const ProjectHeader = ({ title, description, imageSource }: ProjectHeaderType) => {
+    console.log(title);
     return (
         <section className={styles.header}>
         <section className={styles.headerContent}>
             <section className={styles.infoContainer}>
-                <h1 className={styles.title}>APP MÓVEL ESCOLAR</h1>
+                <h1 className={styles.title}>{title}</h1>
                 <p className={styles.brief}>
-                    Aplicativo desenvolvido em React Native com foco na comunidade de responsáveis 
-                    e alunos do Colégio Força Máxima. Nele é possível acessar informações individuais, 
-                    materiais extras, avisos e conteúdos exclusivos. O Aplicativo está disponível na 
-                    App Store e Google Play.
+                    {description}
                 </p>
             </section>
             <section className={styles.imageContainer}>
-                <Image src={forcaMaxima} alt="App Força Maxima"/>
+                <Image 
+                    src={imageSource} 
+                    alt={title}
+                    width={100} 
+                    height={100} 
+                    loading="eager"
+                />
             </section>
         </section>
     </section>

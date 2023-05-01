@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'
 import { LocaleContext } from '@/context/LocaleContext';
 
 import styles from './jobCard.module.scss';
@@ -8,9 +9,10 @@ type JobCardType = {
   imageSource: string;
   title: string;
   tags: any[];
+  id: string;
 }
 
-export const JobCard = ({ imageSource, title, tags}: JobCardType) => {
+export const JobCard = ({ imageSource, title, tags, id}: JobCardType) => {
   const { translate } = useContext(LocaleContext);
 
   const handleClick = () => {
@@ -42,9 +44,9 @@ export const JobCard = ({ imageSource, title, tags}: JobCardType) => {
             ))}
           </div>
 
-          <button type="button" className={styles.ctaButton} onClick={() => handleClick()}>
+          <Link className={styles.ctaButton} href={`/project/${id}`}>
             {translate('components.portfolio.seeMoreButton')}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

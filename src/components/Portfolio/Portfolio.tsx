@@ -33,8 +33,8 @@ interface Project {
 }
 
 
-async function getProjects(test: string) {
-  const res = await fetch(`https://content-manager-rt.herokuapp.com/projects?_locale=${test}&_sort=id:DESC`);
+async function getProjects(locationCode: string) {
+  const res = await fetch(`https://content-manager-rt.herokuapp.com/projects?_locale=${locationCode}&_sort=id:DESC`);
   return res.json();
 }
 
@@ -106,6 +106,7 @@ export const Portfolio = () => {
           title={project.name}
           tags={project.tags}
           key={project.id}
+          id={JSON.stringify(project.id)}
         />
       ))}
     </Slider>

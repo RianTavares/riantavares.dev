@@ -20,7 +20,7 @@ export const ProjectInfoWrapper = () => {
                 <section className={styles.infoBlock}>
                     <h2 className={styles.infoTitle}>Tecnologias:</h2>
                     <section className={styles.stackIconsContainer}>
-                        <Image src={expoIcon} alt="Expo" />
+                        <Image src={expoIcon} alt="Expo" title="Expo"/>
                         <Image src={reactIcon} alt="React" />
                         <Image src={styledComponent} alt="Styled Components" />
                         <Image src={reduxIcon} alt="Redux" />
