@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styles from  './clientSlide.module.scss';
-import logoTest from '../../../../assets/images/nintendo-logo-test.png';
 import Image from "next/image";
 
+interface Partner {
+  attributes: {
+      createdAt: string;
+      name: string;
+      partnerImg: {
+        data: {
+          attributes: {
+            alternativeText: string;
+            url: string;
+            width: number
+          };
+        };
+      };
+    },
+    id: number;
+}
+
+async function getPartners() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/partners?populate=*`);
+  return res.json();
+}
+
+
 export const Slide = () => {
+    const [partners, setPartners] = useState<Partner[]>([]);
+
     const settings = {
       autoplay: true,
       dots: false,
@@ -43,27 +67,30 @@ export const Slide = () => {
         },
       ],
     };
+
+    useEffect(() => {
+        getPartners().then((data) => setPartners(data.data));
+      }, []);
+
     return (
       <div className={styles.clientSlide}>
         <Slider {...settings}>
-          <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
-          </div>
-          <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
-          </div>
-          <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
-          </div>
-          <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
-          </div>
-          <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
-          </div>
-          <div className={styles.logoContainer}>
-            <Image className={styles.logo} src={logoTest} alt="Nintendo Test" loading="eager"/>
-          </div>
+          {partners.map((partner) => (
+            <div key={partner.id} className={styles.logoContainer}>
+              <Image 
+                src={partner.attributes.partnerImg.data.attributes.url} 
+                className={styles.logo}
+                style={{
+                  maxWidth: partner.attributes.partnerImg.data.attributes.width
+                }}
+                alt={partner.attributes.partnerImg.data.attributes.alternativeText}
+                width={100} 
+                height={100} 
+                loading="eager"
+                unoptimized
+              />
+            </div>
+          ))}
         </Slider>
       </div>
     );

@@ -7,3 +7,4 @@ export { AppBar } from './AppBar';
 export { ProjectHeader } from './ProjectHeader';
 export { ProjectInfoWrapper } from './ProjectInfoWrapper';
 export { AtomLoading } from './AtomLoading';
+export { DemoLinks } from './DemoLinks';

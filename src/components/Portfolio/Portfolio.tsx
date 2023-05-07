@@ -9,32 +9,115 @@ import styles from './portfolio.module.scss';
 
 interface Project {
   id: number;
-  name: string;
-  description: string;
-  date: string;
-  android: boolean;
-  android_url: string;
-  case: { [key: string]: any };
-  created_at: string;
-  ios: boolean;
-  ios_url: string | null;
-  locale: string;
-  localizations: any[];
-  post: string;
-  post_banner: { [key: string]: any };
-  post_title: string;
-  published_at: string;
-  see_more_button: string;
-  slug: string;
-  tags: any[];
-  updated_at: string;
-  web: boolean;
-  web_url: string | null;
+  attributes: {
+    name: string;
+    year: string;
+    stack: {
+      name: string[];
+    };
+    client: string;
+    demo: {
+      web: string;
+      webUrl: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    locale: string;
+    postDescription: string;
+    shortDescription: string;
+    case: {
+      data: {
+        id: number;
+        attributes: {
+          name: string;
+          alternativeText: null | string;
+          caption: null | string;
+          width: number;
+          height: number;
+          formats: {
+            thumbnail: {
+              ext: string;
+              url: string;
+              hash: string;
+              mime: string;
+              name: string;
+              path: null | string;
+              size: number;
+              width: number;
+              height: number;
+            };
+          };
+          hash: string;
+          ext: string;
+          mime: string;
+          size: number;
+          url: string;
+          previewUrl: null | string;
+          provider: string;
+          provider_metadata: null | Record<string, unknown>;
+          createdAt: string;
+          updatedAt: string;
+        };
+      };
+    };
+    postImg: {
+      data: {
+        id: number;
+        attributes: {
+          name: string;
+          alternativeText: null | string;
+          caption: null | string;
+          width: number;
+          height: number;
+          formats: {
+            small: {
+              ext: string;
+              url: string;
+              hash: string;
+              mime: string;
+              name: string;
+              path: null | string;
+              size: number;
+              width: number;
+              height: number;
+            };
+            thumbnail: {
+              ext: string;
+              url: string;
+              hash: string;
+              mime: string;
+              name: string;
+              path: null | string;
+              size: number;
+              width: number;
+              height: number;
+            };
+          };
+          hash: string;
+          ext: string;
+          mime: string;
+          size: number;
+          url: string;
+          previewUrl: null | string;
+          provider: string;
+          provider_metadata: null | Record<string, unknown>;
+          createdAt: string;
+          updatedAt: string;
+        };
+      };
+    };
+    localizations: {
+      data: unknown[];
+    };
+    tags: {
+      data: unknown[];
+    }
+  };
 }
 
-
 async function getProjects(locationCode: string) {
-  const res = await fetch(`https://content-manager-rt.herokuapp.com/projects?_locale=${locationCode}&_sort=id:DESC`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects?locale=${locationCode}&populate=*`);
   return res.json();
 }
 
@@ -93,18 +176,17 @@ export const Portfolio = () => {
     ],
   };
 
-
   useEffect(() => {
-    getProjects(locale).then((data) => setProjects(data));
+    getProjects(locale).then((data) => setProjects(data.data));
   }, [locale]);
 
   return (
     <Slider {...settings}>
       {projects.map((project) => (
         <JobCard
-          imageSource={project.case.url}
-          title={project.name}
-          tags={project.tags}
+          imageSource={project.attributes.case.data.attributes.url}
+          title={project.attributes.name}
+          tags={project.attributes.tags.data}
           key={project.id}
           id={JSON.stringify(project.id)}
         />

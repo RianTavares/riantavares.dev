@@ -10,7 +10,6 @@ type ProjectHeaderType = {
   }
 
 export const ProjectHeader = ({ title, description, imageSource }: ProjectHeaderType) => {
-    console.log(title);
     return (
         <section className={styles.header}>
         <section className={styles.headerContent}>
@@ -27,6 +26,7 @@ export const ProjectHeader = ({ title, description, imageSource }: ProjectHeader
                     width={100} 
                     height={100} 
                     loading="eager"
+                    unoptimized
                 />
             </section>
         </section>

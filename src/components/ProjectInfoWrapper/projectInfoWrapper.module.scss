@@ -65,6 +65,22 @@
     color: var(--color-text-primary);
 }
 
+.liveDemo {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-1-5x);
+    
+    @media #{$BREAKPOINT-DESK} {
+        align-items: center;
+        flex-direction: row;
+    }
+}
+
 .stackIconsContainer {
     display: flex;
     gap: var(--space-0-5x);

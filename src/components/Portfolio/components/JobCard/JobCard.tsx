@@ -14,7 +14,6 @@ type JobCardType = {
 
 export const JobCard = ({ imageSource, title, tags, id}: JobCardType) => {
   const { translate } = useContext(LocaleContext);
-
   const handleClick = () => {
     console.log('clicked');
   }
@@ -29,6 +28,7 @@ export const JobCard = ({ imageSource, title, tags, id}: JobCardType) => {
           width={100} 
           height={100} 
           loading="eager"
+          unoptimized
         />
       </div>
 
@@ -39,7 +39,7 @@ export const JobCard = ({ imageSource, title, tags, id}: JobCardType) => {
           <div className={styles.tagsContainer}>
             {tags.map((tag) => (
               <div className={styles.tag} key={tag.id}>
-                <strong>{tag.tag_name}</strong>
+                <strong>{tag.attributes.name}</strong>
               </div>
             ))}
           </div>
