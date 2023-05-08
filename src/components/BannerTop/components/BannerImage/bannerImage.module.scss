@@ -56,6 +56,7 @@
 .logo {
     max-width: 270px;
     width: 100%;
+    height: auto;
 
     @media #{$BREAKPOINT-TABLET} {
         max-width: 380px;

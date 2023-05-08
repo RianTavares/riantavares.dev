@@ -13,7 +13,11 @@ type ProjectInfoWrapperType = {
   }
 
 export const ProjectInfoWrapper = ({ client, stack, year, demo }: ProjectInfoWrapperType) => {
-    console.log(demo)
+    
+    function isNotEmpty(obj: {}) {
+        return !(Object.keys(obj).length === 0);
+    }
+
     return (
         <section className={styles.projectInfos}>
         <section className={styles.projectInfosContent}>
@@ -34,10 +38,13 @@ export const ProjectInfoWrapper = ({ client, stack, year, demo }: ProjectInfoWra
                     <p className={styles.infoDescription}>{year}</p>
                 </section>
 
-                <section className={styles.infoBlock}>
-                    <h2 className={styles.infoTitle}>Veja Online:</h2>
-                    <div className={styles.liveDemo}><DemoLinks demo={demo} /></div>
-                </section>
+                {(isNotEmpty(demo) && (
+                    <section className={styles.infoBlock}>
+                        <h2 className={styles.infoTitle}>Veja Online:</h2>
+                        <div className={styles.liveDemo}><DemoLinks demo={demo} /></div>
+                    </section>
+                ))
+                }
             </div>
         </section>
     </section>

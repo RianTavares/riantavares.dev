@@ -68,7 +68,7 @@ export const Slide = () => {
                 style={{
                   maxWidth: partner.attributes.partnerImg.data.attributes.width
                 }}
-                alt={partner.attributes.partnerImg.data.attributes.alternativeText}
+                alt={partner.attributes.partnerImg.data.attributes.alternativeText || 'Partner Logo'}
                 width={100} 
                 height={100} 
                 loading="eager"
