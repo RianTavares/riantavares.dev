@@ -1,24 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from 'next/link'
+import { DemoLinksProps } from '@/types/demo';
 
 import appleButton from '../../assets/images/apple-store-badge.png';
 import playStoreButton from '../../assets/images/google-play-badge.png';
 
 import styles from './demoLinks.module.scss';
-
-interface Demo {
-    web?: boolean;
-    webUrl?: string;
-    android?: boolean;
-    androidUrl?: string;
-    ios?: boolean;
-    iosUrl?: string;
-  }
-
-interface DemoLinksProps {
-  demo: Demo;
-}
 
 export const DemoLinks: React.FC<DemoLinksProps> = ({ demo }) => {
   return (

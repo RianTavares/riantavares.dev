@@ -1,17 +1,13 @@
 import React from 'react';
-import Image from 'next/image';
 import { DemoLinks } from '../DemoLinks';
+import { StackIcons } from '../StackIcons';
 
 import styles from './projectInfoWrapper.module.scss';
-import expoIcon from '../../assets/images/stack-icons/expo-icon.png';
-import styledComponent from '../../assets/images/stack-icons/styled-component-icon.png';
-import reactIcon from '../../assets/images/stack-icons/react-icon.png';
-import reduxIcon from '../../assets/images/stack-icons/redux-icon.png';
 
 
 type ProjectInfoWrapperType = {
     client: string;
-    stack: {};
+    stack: { name: string[] };
     year: string;
     demo: {};
   }
@@ -29,18 +25,13 @@ export const ProjectInfoWrapper = ({ client, stack, year, demo }: ProjectInfoWra
 
                 <section className={styles.infoBlock}>
                     <h2 className={styles.infoTitle}>Tecnologias:</h2>
-                    <section className={styles.stackIconsContainer}>
-                        <Image src={expoIcon} alt="Expo" title="Expo"/>
-                        <Image src={reactIcon} alt="React" />
-                        <Image src={styledComponent} alt="Styled Components" />
-                        <Image src={reduxIcon} alt="Redux" />
-                    </section>
+                    <StackIcons names={stack.name} />
                 </section>
             </div>
             <div className={styles.column}>
                 <section className={styles.infoBlock}>
                     <h2 className={styles.infoTitle}>Ano:</h2>
-                    <p className={styles.infoDescription}>2021</p>
+                    <p className={styles.infoDescription}>{year}</p>
                 </section>
 
                 <section className={styles.infoBlock}>

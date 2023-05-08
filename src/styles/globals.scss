@@ -36,10 +36,24 @@ body {
     font-size: 16px;
     font-weight: 400;
 
+    ul {
+      padding: var(--space-2x) 0 var(--space-2x) var(--space-5x);
+    }
   }
 
   &__post-image {
     width: 100%;
+  }
+
+  &__multiple-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2x);
+
+    @media #{$BREAKPOINT-TABLET} {
+      flex-direction: row;
+      gap: var(--space-4x);
+  }
   }
 }
 

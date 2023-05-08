@@ -1,24 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import styles from  './clientSlide.module.scss';
 import Image from "next/image";
+import { Partner } from '@/types/partner';
 
-interface Partner {
-  attributes: {
-      createdAt: string;
-      name: string;
-      partnerImg: {
-        data: {
-          attributes: {
-            alternativeText: string;
-            url: string;
-            width: number
-          };
-        };
-      };
-    },
-    id: number;
-}
+import styles from  './clientSlide.module.scss';
 
 async function getPartners() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/partners?populate=*`);
@@ -40,7 +25,7 @@ export const Slide = () => {
       pauseOnHover: true,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1000,
           settings: {
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -48,9 +33,9 @@ export const Slide = () => {
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 900,
           settings: {
-            slidesToShow: 4,
+            slidesToShow: 1,
             slidesToScroll: 1,
             infinite: true,
           },
