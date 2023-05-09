@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 
 import { SplineLoadContext } from '@/context/SplineLoadContext';
-import { AtomLoading, AppBar } from '@/components';
+import { PreLoading, AppBar } from '@/components';
 import Home from './Home';
 
 import styles from './index.module.scss';
@@ -18,12 +18,12 @@ export default function HomePage() {
   const { isLoading } = useContext(SplineLoadContext);
 
   useEffect(() => {
-    toggleBodyClass(isLoading);
+    // toggleBodyClass(isLoading);
   }, [isLoading]);
 
   return (
     <div className={styles.layout}>
-      {isLoading && <AtomLoading />}
+      {/* {isLoading && <PreLoading />} */}
       <AppBar />
       <Home />
     </div>

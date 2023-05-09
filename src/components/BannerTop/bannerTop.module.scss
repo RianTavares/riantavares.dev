@@ -61,6 +61,7 @@
     right: 0;
     top: 120px;
     margin: 0 auto;
+    animation: fadeInRight 3s ease-in-out;
 
     @media #{$BREAKPOINT-TABLET-LAND} {
         top: 200px;
@@ -73,18 +74,6 @@
     }
 }
 
-// .macbook3D::before {
-//     content: "";
-//     position: absolute;
-//     z-index: -1;
-//     left: 50%;
-//     top: 50%;
-//     transform: translate(-50%, -50%);
-//     width: 2112px;
-//     height: 2112px;
-//     background: var(--mac-mask-banner) center center no-repeat;
-// }
-
 .fadeoutWrapper {
     position: absolute;
     bottom: -137px;
@@ -96,3 +85,25 @@
     background: var(--fadeout-background);
     z-index: 3;
 }
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(800px);
+
+        @media #{$BREAKPOINT-TABLET} {
+            transform: translateX(1600px);
+        }   
+
+        @media #{$BREAKPOINT-TABLET-LAND} {
+            transform: translateX(2360px);
+        }
+        
+        @media #{$BREAKPOINT-DESK} {
+            transform: translateX(3000px);
+        }
+    }
+    to {
+        opacity: 1;
+    }
+  }

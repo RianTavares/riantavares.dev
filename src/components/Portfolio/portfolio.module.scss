@@ -28,3 +28,18 @@
         }
     }   
   }
+
+  .errorMessage {
+    text-align: center;
+    font-family: var(--theme-font-primary);
+    font-weight: 600;
+    font-size: 18px;
+    color: #B33A3A;
+}
+
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

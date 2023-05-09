@@ -14,9 +14,9 @@
 }
 
 .logo {
-    // max-width: 300px;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 .logoContainer {
@@ -25,4 +25,35 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
+}
+
+.errorMessage {
+    @include overlapReactCircles;
+    text-align: center;
+    font-family: var(--theme-font-primary);
+    font-weight: 600;
+    font-size: 18px;
+    color: #B33A3A;
+}
+
+.partnerLink {
+    border: none;
+    outline: none;
+}
+
+.loadingContainer {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    z-index: 4;
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        display: flex;
+        justify-content: right;
+    }
+
+    @media #{$BREAKPOINT-DESK} {
+        display: flex;
+        justify-content: center;
+    }
 }

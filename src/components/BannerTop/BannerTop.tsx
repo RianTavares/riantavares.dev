@@ -42,7 +42,7 @@ export const BannerTop = () => {
   }, [])
 
   const sceneUrl = windowSize.width >= 975
-    ? "https://prod.spline.design/0Ihtl0UNAs7CjDNN/scene.splinecode"
+    ? "https://prod.spline.design/9o4ToR09db-4VXxZ/scene.splinecode"
     : "https://prod.spline.design/EYDHmwEWTPiud8bl/scene.splinecode";
 
   return (

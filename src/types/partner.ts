@@ -11,6 +11,7 @@ export interface Partner {
             };
           };
         };
+        url: string;
       },
       id: number;
   }

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 
+import { AtomLoading } from '@/components';
 import { JobCard } from './components/JobCard';
 import { Arrow } from './components/Arrow';
 import { LocaleContext } from '@/context/LocaleContext';
@@ -9,13 +10,22 @@ import { Project } from '@/types/project';
 import styles from './portfolio.module.scss';
 
 async function getProjects(locationCode: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects?locale=${locationCode}&populate=*`);
-  return res.json();
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects?locale=${locationCode}&populate=*`);
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return res.json();
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+    return null;
+  }
 }
 
 export const Portfolio = () => {
-  const { locale } = useContext(LocaleContext);
+  const { locale, translate } = useContext(LocaleContext);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const settings = {
     className: `${styles['portfolio-slider']}`,
@@ -70,12 +80,29 @@ export const Portfolio = () => {
 
   useEffect(() => {
     getProjects(locale).then((data) => {
-      const sortedProjects = data.data.sort((a: Project, b: Project) => {
-        return parseInt(b.attributes.year) - parseInt(a.attributes.year);
-      });
-      setProjects(sortedProjects);
+      setLoading(false);
+      if (data) {
+        const sortedProjects = data.data.sort((a: Project, b: Project) => {
+          return parseInt(b.attributes.year) - parseInt(a.attributes.year);
+        });
+        setProjects(sortedProjects);
+      } else {
+        console.error('No data received from API');
+      }
     });
   }, [locale]);
+
+  if (loading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <AtomLoading title={translate('components.portfolio.loading')}/>
+      </div>
+    )
+  }
+
+  if (!projects.length) {
+    return <div className={styles.errorMessage}>{translate('components.portfolio.errorMessage')}</div>;
+  }
 
   return (
     <Slider {...settings}>

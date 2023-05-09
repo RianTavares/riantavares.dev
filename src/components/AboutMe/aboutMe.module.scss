@@ -31,6 +31,7 @@
 
 .title {
     @include sectionTitle;
+    @include fadeInRightAnimation;
 }
 
 .text {
