@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from './aboutMe.module.scss';
 import Image from "next/image";
 import Profile from '../../assets/images/rian-tavares-dev-profile.png';
+import parse from 'html-react-parser';
 
 import { Patch } from "../Patch";
 import { LocaleContext } from '@/context/LocaleContext';
@@ -15,7 +16,7 @@ export const AboutMe = () => {
                 <section className={styles.info}>
                     <h1 className={styles.title}>{translate('components.aboutMe.aboutMeStarts')}</h1>
                     <p className={styles.text}>
-                        {translate('components.aboutMe.aboutMeText')}
+                        {parse(translate('components.aboutMe.aboutMeText'))}
                     </p>
                 </section>
 
