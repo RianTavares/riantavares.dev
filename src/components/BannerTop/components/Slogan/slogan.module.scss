@@ -7,17 +7,17 @@
     color: var(--color-green-90);
     max-width: 300px;
     text-align: center;
-    margin-top: -10px;
+    margin-top: var(--space-1-5x);
+    font-weight: 500;
 
     @media #{$BREAKPOINT-TABLET} {
         font-size: 1.2rem;
         max-width: 480px;
-        margin-top: 0;
     }
 
     @media #{$BREAKPOINT-TABLET-LAND} {
         font-size: 1.8rem;
         max-width: 730px;
-        margin-top: var(--space-1x);
+        margin-top: var(--space-2x);
     }
 }

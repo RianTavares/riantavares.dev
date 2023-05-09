@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
-import styles from './bannerTop.module.scss';
 import { BannerImage } from "./components/BannerImage";
-import Spline from '@splinetool/react-spline';
 import { SplineLoadContext } from "@/context/SplineLoadContext";
+import clsx from "classnames";
+import Spline from '@splinetool/react-spline';
+
+import styles from './bannerTop.module.scss';
 
 export const BannerTop = () => {
   const [isSlowConnection, setIsSlowConnection] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0 });
-  const { setIsLoading } = useContext(SplineLoadContext)
+  const { isLoading, setIsLoading } = useContext(SplineLoadContext)
 
   const handleResize = () => {
     setWindowSize({ width: window.innerWidth });
@@ -50,9 +52,13 @@ export const BannerTop = () => {
         <BannerImage />
         {
           isSlowConnection ? (
-            <div className={styles.macbook} />
+            <div 
+              className={styles.macbook} />
           ) : (
-            <div className={styles.macbook3D}>
+            <div className={clsx({
+                [styles.setZoomAnimation]: !isLoading,
+                [styles.macbook3D]: true,
+              })}>
               <Spline onLoad={handleLoadSpline} scene={sceneUrl} />
             </div>
           )

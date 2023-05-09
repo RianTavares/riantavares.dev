@@ -11,8 +11,15 @@ export const BannerImage = () => {
         <div className={styles.bannerImageGradient} />
 
         <div className={styles.logoWrapper}>
-          <Image className={styles.logo} src={Logo} alt="Rian Tavares Dev Logo"/>
-          <Slogan />
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column'
+          }}>
+            <Image className={styles.logo} src={Logo} alt="Rian Tavares Dev Logo"/>
+            <Slogan />
+          </div>
         </div>
     </div>
   );
