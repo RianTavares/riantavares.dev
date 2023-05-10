@@ -26,6 +26,7 @@ export const ProjectHeader = ({ title, description, imageSource }: ProjectHeader
                     width={100} 
                     height={100} 
                     loading="eager"
+                    priority
                     unoptimized
                 />
             </section>

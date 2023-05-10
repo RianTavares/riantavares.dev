@@ -4,6 +4,7 @@ import parse from 'html-react-parser';
 import { LocaleContext } from "@/context/LocaleContext";
 import { AppBar, Footer, ProjectHeader, ProjectInfoWrapper } from "@/components";
 import { Project } from '@/types/project';
+import { NextSeo } from 'next-seo';
 
 import styles from './project.module.scss';
 
@@ -39,26 +40,32 @@ const Project = () => {
   if (!projectData) return null;
 
   return (
-    <section className={styles.projectPage}>
-      <AppBar />
-      <section className={styles.projectContent}>
-        <ProjectHeader
-          title={projectData.attributes.name}
-          description={projectData.attributes.shortDescription}
-          imageSource={projectData.attributes.postImg.data.attributes.url}
-        />
-        <ProjectInfoWrapper
-          client={projectData.attributes.client}
-          stack={projectData.attributes.stack}
-          year={projectData.attributes.year}
-          demo={projectData.attributes.demo}
-        />
-        <main className={styles.postBody}>
-          {projectPost}
-        </main>
-        <Footer />
+    <>
+      <NextSeo
+        title={`${projectData.attributes.name} - RianTavaresDev`}
+        description={projectData.attributes.shortDescription}
+      />
+      <section className={styles.projectPage}>
+        <AppBar />
+        <section className={styles.projectContent}>
+          <ProjectHeader
+            title={projectData.attributes.name}
+            description={projectData.attributes.shortDescription}
+            imageSource={projectData.attributes.postImg.data.attributes.url}
+          />
+          <ProjectInfoWrapper
+            client={projectData.attributes.client}
+            stack={projectData.attributes.stack}
+            year={projectData.attributes.year}
+            demo={projectData.attributes.demo}
+          />
+          <main className={styles.postBody}>
+            {projectPost}
+          </main>
+          <Footer />
+        </section>
       </section>
-    </section>
+    </>
   );
 };
 

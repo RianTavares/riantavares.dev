@@ -40,12 +40,14 @@ export const StackIcons = ({ names }: Techs) => {
 
     return (
         <section className={styles.stackIconsContainer}>
-          {names.map((techName) => {
+          {names.map((techName, index) => {
             const imageSrc = getImageSource(techName);
             return imageSrc ? (
-              <section className={styles.iconContainer}>
+              <section 
+                className={styles.iconContainer} 
+                key={`${techName}-${index}`}>
                 <Image
-                  key={techName}
+                  key={`${techName}-${index}`}
                   src={imageSrc}
                   alt={techName || "Tech icon"}
                   title={techName || "Tech icon"}
