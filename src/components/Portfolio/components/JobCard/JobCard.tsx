@@ -14,9 +14,6 @@ type JobCardType = {
 
 export const JobCard = ({ imageSource, title, tags, id}: JobCardType) => {
   const { translate } = useContext(LocaleContext);
-  const handleClick = () => {
-    console.log('clicked');
-  }
 
   return (
     <div className={styles.jobCard}>

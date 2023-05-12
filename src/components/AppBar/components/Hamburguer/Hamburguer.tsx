@@ -1,26 +1,12 @@
-import React, { useState } from 'react';
-import styles from './hamburguer.module.scss';
+import React, { useContext } from 'react';
 import clsx from "classnames";
 import { Navigation } from '@/components/Navigation';
+import { MenuControlContext } from '@/context/MenuControlContext';
+
+import styles from './hamburguer.module.scss';
 
 const SideBarMenu = () => {
-    const [isClicked, setIsClicked] = useState(false);
-
-    const handleHamburguer = () => {
-        const body = document.body;
-        const currentScrollPosition = window.scrollY;
-    
-        if (!body.classList.contains(styles.menuOpen)) {
-            body.style.top = `-${currentScrollPosition}px`;
-            body.dataset.y = currentScrollPosition.toString();
-        } else {
-            body.style.top = '0px';
-            window.scrollTo(0, Number(body.dataset.y));
-        }
-    
-        body.classList.toggle(styles.menuOpen);
-        setIsClicked(!isClicked);
-    };
+    const { isMenuOpen, clickHandler } = useContext(MenuControlContext);
 
     return (
         <>
@@ -29,10 +15,10 @@ const SideBarMenu = () => {
                     id="button-menu"
                     className={clsx({
                         [styles.hamburguerMenuButton]: true,
-                        [styles.hamburguerMenuButtonOpen]: isClicked,
+                        [styles.hamburguerMenuButtonOpen]: isMenuOpen,
                     })}
                     type="button"
-                    onClick={handleHamburguer}
+                    onClick={clickHandler}
                 >
                     menu
                 </button>
@@ -41,11 +27,11 @@ const SideBarMenu = () => {
                 id="menu-slide-bar"
                 className={clsx({
                     [styles.menuSlideBar]: true,
-                    [styles.menuSlideBarOpen]: isClicked,
+                    [styles.menuSlideBarOpen]: isMenuOpen,
                 })}
             >
                 <section className={styles.slideBarNavWrapper}>
-                    <Navigation className={styles.mobiNav} />
+                    <Navigation className={styles.mobiNav} isClickable />
                 </section>
             </section>
         </>

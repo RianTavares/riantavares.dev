@@ -160,3 +160,7 @@ animation-delay: 0.5s;
   background: var(--underline-marker-color);
   z-index: -1;
 }
+
+.body.overflowHidden, html.overflowHidden {
+  overflow: hidden !important;
+}
