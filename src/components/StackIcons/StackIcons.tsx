@@ -12,6 +12,7 @@ import ReactImg from '../../assets/images/stack-icons/react-icon.png';
 import NodeImg from '../../assets/images/stack-icons/node-icon.png';
 import NextImg from '../../assets/images/stack-icons/next-icon.png';
 import SassImg from '../../assets/images/stack-icons/sass-icon.png';
+import TypescriptImg from '../../assets/images/stack-icons/typescript-icon.webp';
 
 export const StackIcons = ({ names }: Techs) => {
 
@@ -31,8 +32,10 @@ export const StackIcons = ({ names }: Techs) => {
             return NodeImg;
           case 'next':
             return NextImg;
-            case 'sass':
-              return SassImg;
+          case 'sass':
+            return SassImg;
+          case 'typescript':
+            return TypescriptImg;
           default:
             return null;
         }
