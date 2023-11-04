@@ -5,16 +5,14 @@ import Link from "next/link";
 import { Partner } from '@/types/partner';
 import { LocaleContext } from '@/context/LocaleContext';
 import { AtomLoading } from "@/components";
+import { fetchWithRetry } from "@/utils/fetchWithRetry";
 
 import styles from './clientSlide.module.scss';
 
 async function getPartners() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/partners?populate=*`);
-    if (!res.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return res.json();
+    const res = await fetchWithRetry(`${process.env.NEXT_PUBLIC_API_URL}/partners?populate=*`);
+    return res;
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
     return null;

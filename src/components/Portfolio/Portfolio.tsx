@@ -6,16 +6,14 @@ import { JobCard } from './components/JobCard';
 import { Arrow } from './components/Arrow';
 import { LocaleContext } from '@/context/LocaleContext';
 import { Project } from '@/types/project';
+import { fetchWithRetry } from "@/utils/fetchWithRetry";
 
 import styles from './portfolio.module.scss';
 
 async function getProjects(locationCode: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects?locale=${locationCode}&populate=*`);
-    if (!res.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return res.json();
+    const res = await fetchWithRetry(`${process.env.NEXT_PUBLIC_API_URL}/projects?locale=${locationCode}&populate=*`);
+    return res;
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
     return null;
