@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { DemoLinks } from '../DemoLinks';
 import { StackIcons } from '../StackIcons';
+import { LocaleContext } from '@/context/LocaleContext';
 
 import styles from './projectInfoWrapper.module.scss';
 
@@ -13,6 +14,7 @@ type ProjectInfoWrapperType = {
   }
 
 export const ProjectInfoWrapper = ({ client, stack, year, demo }: ProjectInfoWrapperType) => {
+    const { translate } = useContext(LocaleContext);
     
     function isNotEmpty(obj: {}) {
         return !(Object.keys(obj).length === 0);
@@ -23,24 +25,24 @@ export const ProjectInfoWrapper = ({ client, stack, year, demo }: ProjectInfoWra
         <section className={styles.projectInfosContent}>
             <div className={styles.column}>
                 <section className={styles.infoBlock}>
-                    <h2 className={styles.infoTitle}>Cliente:</h2>
+                    <h2 className={styles.infoTitle}>{translate('components.projectInfo.client')}:</h2>
                     <p className={styles.infoDescription}>{client}</p>
                 </section>
 
                 <section className={styles.infoBlock}>
-                    <h2 className={styles.infoTitle}>Tecnologias:</h2>
+                    <h2 className={styles.infoTitle}>{translate('components.projectInfo.technologies')}:</h2>
                     <StackIcons names={stack.name} />
                 </section>
             </div>
             <div className={styles.column}>
                 <section className={styles.infoBlock}>
-                    <h2 className={styles.infoTitle}>Ano:</h2>
+                    <h2 className={styles.infoTitle}>{translate('components.projectInfo.year')}:</h2>
                     <p className={styles.infoDescription}>{year}</p>
                 </section>
 
                 {(isNotEmpty(demo) && (
                     <section className={styles.infoBlock}>
-                        <h2 className={styles.infoTitle}>Veja Online:</h2>
+                        <h2 className={styles.infoTitle}>{translate('components.projectInfo.checkit')}:</h2>
                         <div className={styles.liveDemo}><DemoLinks demo={demo} /></div>
                     </section>
                 ))

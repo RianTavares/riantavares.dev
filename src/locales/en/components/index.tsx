@@ -7,6 +7,7 @@ import portfolio from "./portfolio";
 import patches from "./patches";
 import footer from "./footer";
 import settings from "./settings";
+import projectInfo from "./projectInfo";
 
 export default {
     components: {
@@ -18,5 +19,6 @@ export default {
         patches,
         footer,
         settings,
+        projectInfo
     }
 };
