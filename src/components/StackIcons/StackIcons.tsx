@@ -12,6 +12,8 @@ import ReactImg from '../../assets/images/stack-icons/react-icon.png';
 import NodeImg from '../../assets/images/stack-icons/node-icon.png';
 import NextImg from '../../assets/images/stack-icons/next-icon.png';
 import SassImg from '../../assets/images/stack-icons/sass-icon.png';
+import webflowIcon from '../../assets/images/stack-icons/webflow-icon.png';
+import wordpressIcon from '../../assets/images/stack-icons/wordpress-icon.png';
 import TypescriptImg from '../../assets/images/stack-icons/typescript-icon.webp';
 
 export const StackIcons = ({ names }: Techs) => {
@@ -36,6 +38,10 @@ export const StackIcons = ({ names }: Techs) => {
             return SassImg;
           case 'typescript':
             return TypescriptImg;
+          case 'webflow':
+            return webflowIcon;
+          case 'webflow':
+            return wordpressIcon;
           default:
             return null;
         }
