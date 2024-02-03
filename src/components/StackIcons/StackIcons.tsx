@@ -40,7 +40,7 @@ export const StackIcons = ({ names }: Techs) => {
             return TypescriptImg;
           case 'webflow':
             return webflowIcon;
-          case 'webflow':
+          case 'wordpress':
             return wordpressIcon;
           default:
             return null;
