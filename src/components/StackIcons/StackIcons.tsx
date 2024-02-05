@@ -15,6 +15,7 @@ import SassImg from '../../assets/images/stack-icons/sass-icon.png';
 import webflowIcon from '../../assets/images/stack-icons/webflow-icon.png';
 import wordpressIcon from '../../assets/images/stack-icons/wordpress-icon.png';
 import TypescriptImg from '../../assets/images/stack-icons/typescript-icon.webp';
+import ElementorIcon from '../../assets/images/stack-icons/elementor-icon.png';
 
 export const StackIcons = ({ names }: Techs) => {
 
@@ -42,6 +43,8 @@ export const StackIcons = ({ names }: Techs) => {
             return webflowIcon;
           case 'wordpress':
             return wordpressIcon;
+          case 'elementor':
+            return ElementorIcon;
           default:
             return null;
         }
