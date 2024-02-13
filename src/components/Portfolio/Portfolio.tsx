@@ -81,7 +81,13 @@ export const Portfolio = () => {
       setLoading(false);
       if (data) {
         const sortedProjects = data.data.sort((a: Project, b: Project) => {
-          return parseInt(b.attributes.year) - parseInt(a.attributes.year);
+          const yearComparison = parseInt(b.attributes.year) - parseInt(a.attributes.year);
+          if (yearComparison === 0) {
+            const dateA = new Date(a.attributes.createdAt);
+            const dateB = new Date(b.attributes.createdAt);
+            return dateB.getTime() - dateA.getTime();
+          }
+          return yearComparison;
         });
         setProjects(sortedProjects);
       } else {
