@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { LocaleContext } from "@/context/LocaleContext";
 import { NextSeo } from 'next-seo';
-
+import { useRouter } from 'next/router';
 import { 
     AboutMe, 
     BannerTop, 
@@ -13,6 +13,18 @@ import styles from './home.module.scss';
 
 const Home = () => {
     const { translate } = useContext(LocaleContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (router.asPath.includes('#')) {
+          const anchorId = router.asPath.split('#')[1];
+          const anchorElement = document.getElementById(anchorId);
+          if (anchorElement) {
+            anchorElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, [router.asPath]);
+      
     return (
         <>
             <NextSeo
