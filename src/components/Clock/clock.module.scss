@@ -1,0 +1,35 @@
+.title, .date, .mainTime {
+    color: #FFF;
+}
+
+.time {
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    text-align: right;
+}
+
+.mainTime {
+    font-size: 10em;
+    font-weight: 800;
+    line-height: .9em;
+}
+
+.date {
+    font-size: 2em;
+    text-align: right;
+}
+
+.secondaryClockItem {
+    padding: 12px;
+    background: #eee;
+    border-radius: 2px;
+}
+
+.location {
+    font-weight: 700;
+}
+
+.time, .mainTime {
+    font-variant-numeric: tabular-nums;
+}

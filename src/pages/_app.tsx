@@ -5,6 +5,7 @@ import { LocaleProvider } from '@/context/LocaleContext';
 import { MenuControlProvider } from '@/context/MenuControlContext';
 import { SplineLoadProvider } from '@/context/SplineLoadContext';
 
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
